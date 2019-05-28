@@ -632,9 +632,11 @@ void do_drill( FILE *script, char *line )
 
               if (chars_in_the_line_typed < COLS)
                 {
+             // sprintf( message, "%d %d %d", cl_args.show_errors_flag, *widep, rc );
                   wideaddch_rev( *widep == ASCII_NL ? DRILL_NL_ERR :
-                                 (*widep == ASCII_TAB ?
-                                  ASCII_TAB : (cl_args.show_errors_flag ?
+                                 (*widep == ASCII_TAB ?  ASCII_TAB : 
+                                 (cl_args.show_errors_flag
+                                  && rc != ASCII_NL && rc != ASCII_TAB ?
                                                rc : DRILL_CH_ERR)));
                   chars_in_the_line_typed ++;
                 }
