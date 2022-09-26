@@ -158,5 +158,12 @@ make
 
 # Create the source packages
 
+(xz --version) < /dev/null > /dev/null 2>&1 || {
+    echo
+    echo "**Error**: You must have \`xz' installed to create the distribution."
+    echo "https://tukaani.org/xz/"
+    exit 1
+}
+
 make dist
 
