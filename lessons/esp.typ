@@ -1,18 +1,24 @@
 # Typing lessons in spanish to be used with GNU Typist
-# Copyright (C) 2000  Igor Támara (ikks@bigfoot.com)
 #
-# This program is free software: you can redistribute it and/or modify
+# Copyright (C) 2001, 2002, 2003  Simon Baldwin
+# Copyright (C) 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011,
+#               2012, 2013, 2014, 2016, 2017, 2018, 2019, 2020
+#               Michael Opdenacker, Felix Natter, Paul Goins, Tim Marston,
+#               Mihai Gătejescu
+# Copyright (C) 2021, 2022, 2023 Felix Natter, Mihai Gătejescu
+#
+# GNU Typist is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
 # the Free Software Foundation, either version 3 of the License, or
 # (at your option) any later version.
 #
-# This program is distributed in the hope that it will be useful,
+# GNU Typist is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU General Public License for more details.
 #
 # You should have received a copy of the GNU General Public License
-# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+# along with GNU Typist.  If not, see <http://www.gnu.org/licenses/>.
 #
 
 *:COMIENZO
@@ -1622,7 +1628,7 @@ B:Evaluación de precisión
 I:En está evaluación se espera por lo menos 30wpm y a lo sumo 1% de error
 E:1%
 F:MENU_PRECISION
-S:Fragmento del prologo a "POR LO QUE HE VIVIDO"
+S:Fragmento del prólogo a "POR LO QUE HE VIVIDO"
  :
  :Tres pasiones, simples pero increíblemente fuertes, han gobernado mi vida:
  :las ansias del amor, la búsqueda del conocimiento, y una insoportable
@@ -1641,7 +1647,7 @@ S:Fragmento del prologo a "POR LO QUE HE VIVIDO"
  :parecer demasiado bueno para la vida humana, esto es lo que, al fin
  :he encontrado.
  :
- :                         Bertrand Russel
+ :                         Bertrand Russell
 G:PRECISION
 
 *:FINAL

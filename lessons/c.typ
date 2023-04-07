@@ -1,18 +1,21 @@
 # GNU Typist - improved typing tutor program for UNIX systems
-# Copyright (C) 2011 GNU Typist Development Team
 #
-# This program is free software: you can redistribute it and/or modify
+# Copyright (C) 2011, 2012, 2013, 2014, 2016, 2017, 2018, 2019,
+#               2020 Tim Marston, Felix Natter
+# Copyright (C) 2021, 2022, 2023 Felix Natter, Mihai Gătejescu
+#
+# GNU Typist is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
 # the Free Software Foundation, either version 3 of the License, or
 # (at your option) any later version.
 #
-# This program is distributed in the hope that it will be useful,
+# GNU Typist is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU General Public License for more details.
 #
 # You should have received a copy of the GNU General Public License
-# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+# along with GNU Typist.  If not, see <http://www.gnu.org/licenses/>.
 #
 
 #------------------------------------------------------------------------------
@@ -702,67 +705,67 @@ G:_C_E_C17
 # Lesson series C jump tables
 #------------------------------------------------------------------------------
 *:_C_E_C1
-Q: Do you want to continue to lesson C2 [Y/N] ? 
+Q: Do you want to continue to lesson C2 [Y/N] ?
 N:_C_MENU
 G:_C_S_C2
 *:_C_E_C2
-Q: Do you want to continue to lesson C3 [Y/N] ? 
+Q: Do you want to continue to lesson C3 [Y/N] ?
 N:_C_MENU
 G:_C_S_C3
 *:_C_E_C3
-Q: Do you want to continue to lesson C4 [Y/N] ? 
+Q: Do you want to continue to lesson C4 [Y/N] ?
 N:_C_MENU
 G:_C_S_C4
 *:_C_E_C4
-Q: Do you want to continue to lesson C5 [Y/N] ? 
+Q: Do you want to continue to lesson C5 [Y/N] ?
 N:_C_MENU
 G:_C_S_C5
 *:_C_E_C5
-Q: Do you want to continue to lesson C6 [Y/N] ? 
+Q: Do you want to continue to lesson C6 [Y/N] ?
 N:_C_MENU
 G:_C_S_C6
 *:_C_E_C6
-Q: Do you want to continue to lesson C7 [Y/N] ? 
+Q: Do you want to continue to lesson C7 [Y/N] ?
 N:_C_MENU
 G:_C_S_C7
 *:_C_E_C7
-Q: Do you want to continue to lesson C8 [Y/N] ? 
+Q: Do you want to continue to lesson C8 [Y/N] ?
 N:_C_MENU
 G:_C_S_C8
 *:_C_E_C8
-Q: Do you want to continue to lesson C9 [Y/N] ? 
+Q: Do you want to continue to lesson C9 [Y/N] ?
 N:_C_MENU
 G:_C_S_C9
 *:_C_E_C9
-Q: Do you want to continue to lesson C10 [Y/N] ? 
+Q: Do you want to continue to lesson C10 [Y/N] ?
 N:_C_MENU
 G:_C_S_C10
 *:_C_E_C10
-Q: Do you want to continue to lesson C11 [Y/N] ? 
+Q: Do you want to continue to lesson C11 [Y/N] ?
 N:_C_MENU
 G:_C_S_C11
 *:_C_E_C11
-Q: Do you want to continue to lesson C12 [Y/N] ? 
+Q: Do you want to continue to lesson C12 [Y/N] ?
 N:_C_MENU
 G:_C_S_C12
 *:_C_E_C12
-Q: Do you want to continue to lesson C13 [Y/N] ? 
+Q: Do you want to continue to lesson C13 [Y/N] ?
 N:_C_MENU
 G:_C_S_C13
 *:_C_E_C13
-Q: Do you want to continue to lesson C14 [Y/N] ? 
+Q: Do you want to continue to lesson C14 [Y/N] ?
 N:_C_MENU
 G:_C_S_C14
 *:_C_E_C14
-Q: Do you want to continue to lesson C15 [Y/N] ? 
+Q: Do you want to continue to lesson C15 [Y/N] ?
 N:_C_MENU
 G:_C_S_C15
 *:_C_E_C15
-Q: Do you want to continue to lesson C16 [Y/N] ? 
+Q: Do you want to continue to lesson C16 [Y/N] ?
 N:_C_MENU
 G:_C_S_C16
 *:_C_E_C16
-Q: Do you want to continue to lesson C17 [Y/N] ? 
+Q: Do you want to continue to lesson C17 [Y/N] ?
 N:_C_MENU
 G:_C_S_C17
 *:_C_E_C17

@@ -1,21 +1,29 @@
 #!/usr/bin/perl -w
-
 # converts tipptrainer-0.3.3-lessons to gtypist's .typ-file
 # send comments and suggestions to bug-gtypist@gnu.org
 
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation, either version 3
-# of the License, or (at your option) any later version.
-# 
-# This program is distributed in the hope that it will be useful,
+# Copyright (C) 2001, 2002, 2003 Simon Baldwin (simonb@sco.com)
+# Copyright (C) 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010,
+#               2011, 2012, 2013, 2014, 2016, 2017, 2018,
+#               2019, 2020 Felix Natter, Paul Goins
+# Copyright (C) 2021, 2022, 2023 Felix Natter, Mihai Gătejescu
+
+# Author: Felix Natter <fnatter@gmx.net>
+
+# This file is part of GNU Typist
+
+# GNU Typist is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+
+# GNU Typist is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU General Public License for more details.
-# 
+
 # You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+# along with GNU Typist.  If not, see <http://www.gnu.org/licenses/>.
 
 use strict;
 use Cwd; # Cwd::getcwd
@@ -52,7 +60,7 @@ if ($drill_type eq "D:" || $drill_type eq "d:") {
 
 if (!defined($ARGV[0]) || !(-d $ARGV[0])) {
     die "You must specify a data-subdirectory of tipptrainer " .
-	"as the 1st argument.\n" . 
+	"as the 1st argument.\n" .
 	"For example: 'tt2typ.pl ~/tipptrainer-0.3.3/data/german/'.\n" .
         "(you probably want data/german because the english lessons are incomplete)\n";
 }
@@ -71,7 +79,7 @@ print "creating $typfilename...\n";
 my @lesson_names = read_lesson_index("$datadir/lektion.index");
 
 my $TYPFILE = undef;
-open(TYPFILE, ">$typfilename") || 
+open(TYPFILE, ">$typfilename") ||
     die "Couldn't open $typfilename for writing: $!";
 print TYPFILE "# created by tt2typ.pl from $datadir\n";
 print TYPFILE "# on " . `date`;
@@ -97,7 +105,7 @@ while (-f "$datadir/lektion.$lesson_counter")
 	chomp($line);
 	print TYPFILE " : $line\n";
     }
-    close(TTFILE) || 
+    close(TTFILE) ||
 	die "Couldn't close $datadir/lektion.a$lesson_counter: $!";
 
     convert_lesson($lesson_counter, "$datadir/lektion.$lesson_counter",
@@ -140,7 +148,7 @@ sub convert_lesson($$*)
     my $drill_counter = 1;
     my $line_counter = 0;
     my $line = undef;
-    open(TTFILE, $lesson_file) || 
+    open(TTFILE, $lesson_file) ||
 	die "Couldn't open $lesson_file for reading: $!";
     while (defined($line = <TTFILE>))
     {

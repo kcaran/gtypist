@@ -1,34 +1,37 @@
 #! /usr/bin/gtypist
 #
-#	Russian touch typing course for GNU Typist.
-#	
-#	Copyright (C) 2003  Dmitry Rutsky	<rutsky@school.ioffe.rssi.ru>
+# Russian touch typing course for GNU Typist.
 #
-#	This program is free software: you can redistribute it and/or modify
-#	it under the terms of the GNU General Public License as published by
-#	the Free Software Foundation, either version 3 of the License, or
-#	(at your option) any later version.
+# Copyright (C) 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011,
+#               2012, 2013, 2014, 2016, 2017, 2018, 2019, 2020
+#               Dimitry Rutsky	<rutsky@school.ioffe.rssi.ru>
+# Copyright (C) 2021, 2022, 2023 Felix Natter, Mihai Gătejescu
 #
-#	This program is distributed in the hope that it will be useful,
-#	but WITHOUT ANY WARRANTY; without even the implied warranty of
-#	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-#	GNU General Public License for more details.
+# GNU Typist is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
 #
-#	You should have received a copy of the GNU General Public License
-#	along with this program.  If not, see <http://www.gnu.org/licenses/>.
+# GNU Typist is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with GNU Typist.  If not, see <http://www.gnu.org/licenses/>.
 #
 
 #
-#	Original of this file uses KOI8-R encoding.  If you're using different
-#	encoding in your terminal, you have to convert the file appropriately.
-#	For example, to convert this file to DOS CP866, you may do it with the
-#	following command (if you have `iconv' utility which is installed along
-#	with the GNU C Library):
+# Original of this file uses KOI8-R encoding.  If you're using different
+# encoding in your terminal, you have to convert the file appropriately.
+# For example, to convert this file to DOS CP866, you may do it with the
+# following command (if you have `iconv' utility which is installed along
+# with the GNU C Library):
 #
-#	iconv -f KOI8-R -t CP866 /usr/share/gtypist/ru.typ > ru_CP866.typ
+# iconv -f KOI8-R -t CP866 /usr/share/gtypist/ru.typ > ru_CP866.typ
 #
-#	If this file is in /usr/share/gtypist this will create CP866-encoded
-#	`ru_CP866.typ' script file in current directory.
+# If this file is in /usr/share/gtypist this will create CP866-encoded
+# `ru_CP866.typ' script file in current directory.
 #
 
 B: Добро пожаловать!
@@ -207,7 +210,7 @@ T:
  :была одним этим пальцем.  Этот приём был единственно верным на механических
  :пишущих машинах, но на современной удобной клавиатуре его следует по
  :возможности избегать.
- 
+
 B:`Д'
 I:Нажимайте клавишу `Д' безымянным пальцем правой руки.  Отучились ли вы уже от
  :привычки смотреть на клавиатуру?
@@ -302,7 +305,7 @@ D:фывапролдж жфдылвоапр рдлоыпролопрфрпдж �
  :
  :жара жара дар дар рада рада дрова дрова права права правы правы
  :прожрал прожрал жрала жрала арфа арфа правда правда пар пар двор двор
- :попал попал водопровод водопровод подвал подвал пропадал пропадал 
+ :попал попал водопровод водопровод подвал подвал пропадал пропадал
  :вправо вправо поплыла поплыла прорвало прорвало попала попала падал падал
  :дрофа дрофа ров ров подвода подвода выдра выдра радовала радовала
  :правда правда пропала пропала провода провода вар вар фарфор фарфор
@@ -713,7 +716,7 @@ T:
  :его можно было бы заменить пробелом без искажения смысла.  Среди многих
  :распространённых орфографических ошибок особенно часто встречается
  :неправильное его применение или не применение после приставок и перед
- :частицами, например "повидимому", "было-бы", "либо-же" и "вряд-ли". 
+ :частицами, например "повидимому", "было-бы", "либо-же" и "вряд-ли".
  :Будем надеяться, что вы лучше знакомы с правилами русского языка на практике.
  :
  :    Дефис, он же минус, нажимается мизинцем правой руки;  расположен он правее
@@ -953,7 +956,7 @@ I:Теперь обе этих клавиши:
 D:Цщ Щц ЦЩ ЩЦ цщЦ ццщ щЦщ Щцц
  :ЦщцщЦщцщ ЩцщцЩцщц ЦщщцщцщцццщцЩЦцщщцЩщцЦЩцщц
 B:Всё вместе
-I:А теперь попробуем всё вместе.  
+I:А теперь попробуем всё вместе.
 D:Цветастым щебетом расщебеталась самка щегла.  "Конец роще", подумал Щукин.
  :Цапле щебет был как перец, ощетинившись, она целовала своего целого пока
  :щенка.  Щенок выцветал целыми щербинками своего шаловливого перцово-щенного
@@ -1380,7 +1383,7 @@ S:В смайликах "%" вместо двоеточия может озна�
  :нажать клавишу верхнего регистра, набирая минус.  Вместо обычных скобок "()"
  :можно применять фигурные, угловые, или даже квадратные;  обычно это
  :подчёркивает смайлик, делая его более гротескным.  Сравните ":-)" с ":->",
- :":}" и ":-]".  Изредка на месте скобок применяются и другие символы, например 
+ :":}" и ":-]".  Изредка на месте скобок применяются и другие символы, например
  :"@" и "#", могущие обозначать оскал или ещё какие-нибудь характерные гримасы.
  :Нельзя не упомянуть про "очень широкую улыбку", кое-где символ весьма
  :распространённый, ":-D" или ":D".  Впрочем, он может обозначать и оскал.
@@ -1624,7 +1627,7 @@ T:
  :над качеством:  точностью и ритмичностью движений, устранению их избытка
  :и придания им лёгкости.  Если у вас подолгу не получается какое-то упражнение,
  :попытайтесь найти этому причину.  Может быть, стоит перечитать рекомендации,
- :данные в этом и других разделах курса.  
+ :данные в этом и других разделах курса.
  :
  :    Пара слов о различии упражнений и практики:  "упражнения" сложнее.  Дело в
  :том, что при работе над упражнениями вы именно работаете над упражнениями,
@@ -1657,8 +1660,8 @@ T:
  :(Вы можете вспомнить прекрасное место на эту тему в романе братьев Стругацких
  :"Понедельник начинается в субботу". [TODO:  привести лучшее место в литературе
  :на эту тему в качестве примера нерационального подхода к набору текста.])
- :Название, по-видимому, произошло из-за того, что вначале обучавшимся 
- :завязывали глаза и учили находить их клавиши в таком положении.  Затем стали 
+ :Название, по-видимому, произошло из-за того, что вначале обучавшимся
+ :завязывали глаза и учили находить их клавиши в таком положении.  Затем стали
  :ставить перегородку между клавиатурой и глазами с той же целью, но сейчас так
  :уже не делают (впрочем, есть один хороший способ отучить от подсматривания ---
  :перемешайте клавиши на клавиатуре).

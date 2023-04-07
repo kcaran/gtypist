@@ -1,20 +1,23 @@
 /*
  * GNU Typist  - interactive typing tutor program for UNIX systems
- * 
- * Copyright (C) 2003, 2008  GNU Typist Development Team <bug-gtypist@gnu.org>
  *
- * This program is free software: you can redistribute it and/or modify
+ * Copyright (C) 2003, 2008, 2009, 2010, 2011, 2012, 2013, 2014,
+ *               2016, 2017, 2018, 2019, 2020
+ *               Hynek Hanke, Paul Goins, Mihai Gătejescu
+ * Copyright (C) 2021, 2022, 2023 Felix Natter, Mihai Gătejescu
+ *
+ * GNU Typist is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * This program is distributed in the hope that it will be useful,
+ * GNU Typist is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ * along with GNU Typist.  If not, see <http://www.gnu.org/licenses/>.
  */
 
 #include "config.h"
@@ -184,7 +187,7 @@ char *do_menu (FILE *script, char *line)
   const int MENU_HEIGHT_MAX = LINES - 6;
 
   append_menu_history (__last_label);
-  
+
   // Bind our former F12 key to the current menu
   bind_F12 (__last_label);
 
@@ -261,11 +264,11 @@ char *do_menu (FILE *script, char *line)
        so we have to find the _last_ " */
     while (data[i] != '\n')
       i++;
-    while (data[i] != '"') 
+    while (data[i] != '"')
       i--;
     data[i] = 0; /* terminate description */
   }
-      
+
   /* get the longest description */
   max_width = 0;
   for (i = 0; i < num_items; i++)
@@ -294,7 +297,7 @@ char *do_menu (FILE *script, char *line)
   spacing = (COLS - columns * max_width) / (columns + 1);
 
   /* compute items/page (for scrolling) */
-  items_per_page = min (num_items, columns * 
+  items_per_page = min (num_items, columns *
 			min (MENU_HEIGHT_MAX, items_first_column));
 
   /* find # of visible items in column */
@@ -322,7 +325,7 @@ char *do_menu (FILE *script, char *line)
   mvwideaddstr (LINES - 1, 0,
 		_( "Use arrowed keys to move around, "
         "SPACE or RETURN to select and ESCAPE to go back" ));
-  
+
   do
   {
     /* (re)display the menu */
@@ -353,7 +356,10 @@ char *do_menu (FILE *script, char *line)
 
     wattroff (stdscr, A_REVERSE);
 
-    get_widech( &ch );
+    if (ERR == get_widech(&ch))
+    {
+        fatal_error("internal error: get_widech", NULL);
+    }
     switch (ch)
     {
       case KEY_UP:
@@ -425,7 +431,7 @@ char *do_menu (FILE *script, char *line)
               cur_choice = 0;
         }
         break;
-        
+
       case KEY_CANCEL: // anyone knows where is this key on a PC keyboard?
       case ASCII_ESC:
       case 'q':
@@ -437,10 +443,9 @@ char *do_menu (FILE *script, char *line)
         goto cleanup;
 
       default:
-        // printf ("libncurses think that it's key \\%o\n", ch);
         break;
     }
-    
+
   } while (ch != KEY_ENTER);
 
   wattroff (stdscr, A_REVERSE);

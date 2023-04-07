@@ -1,3 +1,25 @@
+# GNU Typist - improved typing tutor program for UNIX systems
+#
+# Copyright (C) 2001, 2002, 2003  Simon Baldwin
+# Copyright (C) 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011,
+#               2012, 2013, 2014, 2016, 2017, 2018, 2019, 2020
+#               Felix Natter, Mihai Gătejescu
+# Copyright (C) 2021, 2022, 2023 Felix Natter, Mihai Gătejescu
+#
+# GNU Typist is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# GNU Typist is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with GNU Typist.  If not, see <http://www.gnu.org/licenses/>.
+#
+
 # created by tt2typ.pl from /home/felix/src/tipptrainer-0.6.0/data/german
 # on Do 30. Jun 20:24:34 CEST 2011
 # tt2typ.pl is part of gtypist (http://www.gnu.org/software/gtypist/)
@@ -131,7 +153,7 @@ D:all das öd all dass das öl kafka lass das ja kalk öl ja las
 I:(7)
 D:ja ja sass da als all das öl kafka las falk sass da als all
  :das öl lass das all kafka las all falls all das öl as ja da
- :da das alls kafka las kalk fall saal falls all das öl ja ja 
+ :da das alls kafka las kalk fall saal falls all das öl ja ja
 G:E_LESSON2
 
 *:S_LESSON3
@@ -139,7 +161,7 @@ K:12:MENU
 B:               Lesson 3: Die Buchstaben "e" und "i"
 T:
  : Taste die neuen Zeichen ein paar mal vor, bevor Du die Lektion beginnst.
- : Die beiden Mittelfinger sind für "e" und "i" zuständig. Sieh dabei 
+ : Die beiden Mittelfinger sind für "e" und "i" zuständig. Sieh dabei
  : nicht auf die Tastatur!
 *:LESSON3_D1
 I:(1)
@@ -190,9 +212,9 @@ T:
  : Taste ein paar mal nach den neuen Tasten, bevor Du die Lektion beginnst.
  : Achte auf einen gleichmäßigen Anschlag. Schreibmaschinen brauchen das,
  : um die Typenhebel richtig niederschlagen zu lassen Am Computer kommt es
- : bei ungleichmäßigem Anschlag schnell zu Zeichenvertauschungen, wie z.B. 
- : "ie" statt "ei". 
- : Sieh beim Schreiben nicht auf die Tastatur! Sprich die Lektion laut mit, 
+ : bei ungleichmäßigem Anschlag schnell zu Zeichenvertauschungen, wie z.B.
+ : "ie" statt "ei".
+ : Sieh beim Schreiben nicht auf die Tastatur! Sprich die Lektion laut mit,
  : für die Leertaste sprich: "leer".
 *:LESSON4_D1
 I:(1)
@@ -237,7 +259,7 @@ K:12:MENU
 B:               Lesson 5: Die Buchstaben "w" und "o"
 T:
  : Die Tasten "w" und "o" werden mit den Ringfingern gegriffen.
- : Ertaste sie erst ein paar mal, bevor Du beginnst. Nicht auf 
+ : Ertaste sie erst ein paar mal, bevor Du beginnst. Nicht auf
  : die Tasten schauen! Lies laut mit!
 *:LESSON5_D1
 I:(1)
@@ -248,25 +270,25 @@ D:sws lol sws lol sws lol sws lol was los was los was los was
 *:LESSON5_D2
 I:(2)
 D:gold geld soll will kilo lose kose wald jagd wage lage lego
- :hose hase lode ewig soda dose wild will soll wald feil woll 
+ :hose hase lode ewig soda dose wild will soll wald feil woll
  :weise leise heise hose lose wiese waffel wieso weil was wie
  :wiege weise will logo leise wiese wiese wieso wald was wohl
 *:LESSON5_D3
 I:(3)
 D:waage wiege agil wog was wieso wald waldig wilde kilo wieso
  :jage wildes wild wald was sah sie wie log sie was wieso log
- :isa die wiese lag weg wie weil sie wo sowieso lolö öle ölig 
+ :isa die wiese lag weg wie weil sie wo sowieso lolö öle ölig
  :loewe leise lose gosse gasse hose dose diese woge loge wade
 *:LESSON5_D4
 I:(4)
 D:wash fish who is who was whose fool while whole who goes he
- :goes she goes goal she saw dow kill as file off while whole 
+ :goes she goes goal she saw dow kill as file off while whole
  :false welsh wise whis joda jedi fish flash dog ale while we
  :wie weise wieso kafka was las als da was fiel die hose lose
 *:LESSON5_D5
 I:(5)
 D:die gosse sie wog je dose kaffee das was sie sah die kladde
- :sie fiel da die wade kafka fade das die lade los es wog was 
+ :sie fiel da die wade kafka fade das die lade los es wog was
  :kafka las die kladde als was fiel was wog das löss wege weg
  :öle die waage das wog kafka las wie las kafka die kladde da
 *:LESSON5_D6
@@ -316,7 +338,7 @@ D:hallo wer war diese halli hallo hallöle hallali hirse hafer
 *:LESSON6_D6
 I:(6)
 D:wage es war dusselig es war eisig weil luise da war egal du
- :will es kalle oder ole hose aus wolle kleid seidig haus aus 
+ :will es kalle oder ole hose aus wolle kleid seidig haus aus
  :löss fiel kafka was er rede ruhig lies es ruhig aller regel
  :das regal das fiel der saal war leer wars fred wars ole was
 *:LESSON6_D7
@@ -331,8 +353,8 @@ T:
  : Jetzt noch einmal ein paar Wortübungen! Diese Wortkombinationen
  : ergeben noch immer keinen Sinn. Es sind hin und wieder
  : doppelte Leerzeichen im Text. Damit können wir das später
- : hinzukommende Komma ersetzen. Achte in diesem Text darauf, 
- : dass nicht mehr jede Zeile 60 Zeichen lang ist. 
+ : hinzukommende Komma ersetzen. Achte in diesem Text darauf,
+ : dass nicht mehr jede Zeile 60 Zeichen lang ist.
 *:LESSON7_D1
 I:(1)
 D:aufs dies jura soda hier ufer haus erde frau juda judo joda
@@ -349,18 +371,18 @@ D:weise welle welse ferse wohlig wasserglas wasserfass wildes
 I:(3)
 D:wollo kohle sohle dohle gejohle logo sog flog woge jod hose
  :jagd gewehr eule geheule keule kuhle soul klaue wohlig hole
- :war er das  war sie das  wer war das wohl  wieso war es so 
+ :war er das  war sie das  wer war das wohl  wieso war es so
  :weise leise reise heise kriese wiese ferse hirse garaus was
 *:LESSON7_D4
 I:(4)
 D:also was soll das  weil das so sei  klar das war so ja das
- :was so war  was soll er was will er wer will es wer soll es 
+ :was so war  was soll er was will er wer will es wer soll es
  :er soll was sie soll was sah er was so sah es aus was wohl
  :sie wolle was so er sah wer will das da wer soll wer ursel
 *:LESSON7_D5
 I:(5)
 D:alles war da was fiel das war gerade gefiel er jodele wolle
- :walle walle falle gefiel gefahr gewehr wars wurde gulli 
+ :walle walle falle gefiel gefahr gewehr wars wurde gulli
  :woge flog sog sauge lauge klaue dau gerade gelage woge woge
  :wage sage frage frau herr hausfrau hausherr heraus goldig
 *:LESSON7_D6
@@ -373,7 +395,7 @@ K:12:MENU
 B:               Lesson 8: Die Buchstaben "t" und "z"
 T:
  : Die Buchstaben "t" und "z" werden mit den Zeigefingern gegriffen.
- : Taste wieder einmal erst vor, bevor Du mit der Lektion beginnst! 
+ : Taste wieder einmal erst vor, bevor Du mit der Lektion beginnst!
  : Sprich laut mit!
 *:LESSON8_D1
 I:(1)
@@ -402,7 +424,7 @@ D:welt erde orte worte warte zarte witze werte harte karte zu
 *:LESSON8_D5
 I:(5)
 D:wieso liest er das wer sagt etwas gesagt getagt gewagt erze
- :löst es auf gelöst geht er wer wagt geht wer zaudert steht 
+ :löst es auf gelöst geht er wer wagt geht wer zaudert steht
  :fast gewagt ist gesagt tag tue eis taut auf zahl das eis da
  :kafka liest der titel ist das tier war da weil dies tier da
 *:LESSON8_D6
@@ -413,10 +435,10 @@ D:war  fiel der krug alles lief  half  saugte sagte rief geht
  :der was hörte wartete kafka sagt zu elise geht jetzt frau
 *:LESSON8_D7
 I:(7)
-D:es stört wer da fragt die woge erstarrt alles stille 
+D:es stört wer da fragt die woge erstarrt alles stille
  :elise geht es war kafkas wille sie geht als der krug grade
- :fiel der saft lief der autor rief alles eilte dazu jetzt 
- :war ruh 
+ :fiel der saft lief der autor rief alles eilte dazu jetzt
+ :war ruh
 G:E_LESSON8
 
 *:S_LESSON9
@@ -478,7 +500,7 @@ I:(1)
 D:qp pq qp pq qp pq qp qp pq qp qp pq pq qp pq qp qp qp pq pq
  :qu qu qu qu qu qu qu qu qu qu qu qu qu qu qu qu qu qu qu qu
  :pr pr pr pr pr pr pr pr pr pr pr pr pr pr pr pr pr pr pr pr
- :op op op op op op op op op op op op op op op op op op op op 
+ :op op op op op op op op op op op op op op op op op op op op
 *:LESSON10_D2
 I:(2)
 D:qua quo qua quo qua qua quo que que qua quo que qui qui quo
@@ -526,7 +548,7 @@ B:               Lesson 11: Die Buchstaben "v" und "m"
 T:
  : Bevor diese Lektion beginnt, sind ein paar
  : Dehnungsübungen für die Finger angebracht.
- : Ab jetzt geht es in die untere Reihe. Die Tasten 
+ : Ab jetzt geht es in die untere Reihe. Die Tasten
  : "v" und "m" werden mit dem Zeigefinger gegriffen.
 *:LESSON11_D1
 I:(1)
@@ -554,7 +576,7 @@ D:mimik hervor herum vertreter wurde mehrere verkauf verglast
  :kummer fummel hummel summe summt krumm kram er kramt lahmer
 *:LESSON11_D5
 I:(5)
-D:verkehr verkehrt herum umfahre marktplatz wer mag apfelmus 
+D:verkehr verkehrt herum umfahre marktplatz wer mag apfelmus
  :lava magma mutter vater gemerkt vermerkt vermarktet versagt
  :vermisst vermiest verklagt verzagt er verzog werktags werft
  :er vertrat klaus vertrat fred vera vertritt maria uta reimt
@@ -574,9 +596,9 @@ K:12:MENU
 B:               Lesson 12: Die Buchstaben "b" und "n"
 T:
  : Weitere Arbeit für die Zeigefinger!
- : Auch die Tasten "b" und "n" gehören zu seinem 
+ : Auch die Tasten "b" und "n" gehören zu seinem
  : Wirkungskreis. Achte darauf, dass Du nach Anschlagen
- : der Tasten in der unteren Reihe wieder in die 
+ : der Tasten in der unteren Reihe wieder in die
  : Grundstellung zurückkehrst.
 *:LESSON12_D1
 I:(1)
@@ -625,7 +647,7 @@ K:12:MENU
 B:                 Lesson 13: Das "c" und das Komma
 T:
  : Die Tasten "c" und das Komma werden vom Mittelfinger
- : gegriffen. Das erfordert etwas Übung, vor allem in 
+ : gegriffen. Das erfordert etwas Übung, vor allem in
  : der linken Hand, weil dort eine Abwärtsbewegung
  : von links nach rechts vollzogen werden muss.
  : Übe dies bevor Du mit der Lektion beginnst.
@@ -692,25 +714,26 @@ I:(2)
 D:axt exe axt exe ol. ol. mol. mal. mel. en. en. en. ein. en.
  :fax max axt axt. fax. max. a..a s..s d..d f..f j..j k..k xx
  :exe exa ex dax sax fax nux lux mux  tux exakt lexikon lexik
- :tux. taxi text textur taxen taxator taxameter saxophon lexx   
+ :tux. taxi text textur taxen taxator taxameter saxophon lexx
 *:LESSON14_D3
 I:(3)
 D:tux. tex. exakt. explosion. exorbitant. mexiko. exempel. ex
- :tux luxemburg. fix. fax. fixum. fixieren. extrakt. extra. 
+ :tux luxemburg. fix. fax. fixum. fixieren. extrakt. extra.
  :tux nixe verflixt fixen ein problem fixen. fix. max. lol l.
  :tux. den text revidieren. xerxes, der perserkönig war nicht
 *:LESSON14_D4
 I:(4)
 D:in luxemburg, sagt er. felix lebt nicht am existenzminimum.
- :linux linux linux linux linux linux linux linux linux linux
- :tux tux tux tux tux tux tux tux tux tux tux tux tux tux tux
- :taxi fahren ist toll. linus begann mit linux als student.
+ :linux kernel linux kernel linux kernel linux kernel linux
+ :tux tux tux tux tux tux tux tux tux tux tux tux tux tux taxi
+ :fahren ist toll. linus begann mit linux kernel als student.
 *:LESSON14_D5
 I:(5)
 D:auch heute arbeiten viele studenten an der entwicklung von
- :software, die unter linux laufen soll. exakt nach dem start
- :blieb der wagen stehen. der fahrer schloss erstmal alle
- :fenster. er war programmierer, doch er kannte linux nicht.
+ :software, die unter dem linux kernel laufen soll. exakt
+ ::nach dem start blieb der wagen stehen. der fahrer schloss
+ :erstmal alle fenster. er war programmierer, doch er kannte
+ :den linux kernel nicht.
 *:LESSON14_D6
 I:(6)
 D:nach der explosion war der saal leer. kafka las erstmal die
@@ -793,7 +816,7 @@ T:
  : Das "y" und der Mittelstrich werden mit den kleinen
  : Fingern gegriffen. Der Mittelstrich kann als Trenn-
  : strich für die Silbentrennung, als Ergänzungsbindestrich,
- : als Gedankenstrich, als Mittelstrich oder Zeichen 
+ : als Gedankenstrich, als Mittelstrich oder Zeichen
  : für "gegen" oder für "bis" und als Subtraktionszeichen
  : benutzt werden.
 *:LESSON16_D1
@@ -834,7 +857,7 @@ D:an den punktetabellen, wenn er die ergebnisse verschiedener
  :    herta bsc - fortuna köln
 *:LESSON16_D7
 I:(7)
-D:in verbindungen wie gertrud-meier-platz oder 
+D:in verbindungen wie gertrud-meier-platz oder
  :nord-ostsee-kanal wird der mittelstrich ohne leerzeichen
  :verwendet. als gedankestrich taucht er auf, wenn man ein
  :paar stichworte logisch voneinander absetzen möchte.
@@ -862,15 +885,15 @@ D:möhre mähre fähre führe würde könnte müsste hätte täte gäbe
  :flögen die vögel über die meere
 *:LESSON17_D3
 I:(3)
-D:und sähen die mähre, 
+D:und sähen die mähre,
  :gefolgt von dem bären,
  :dann würden sie stürzen hinab auf den bösen,
  :zum töten bereiten, verfressenen räuber,
 *:LESSON17_D4
 I:(4)
-D:ihn zausen und hacken, 
+D:ihn zausen und hacken,
  :mit schnäbeln zwacken,
- :ihn stechen und jagen 
+ :ihn stechen und jagen
  :bis er zög von dannen
 *:LESSON17_D5
 I:(5)
@@ -894,7 +917,7 @@ D:konfitüre, marmelade, breitmaulfrösche ängstigen sich vor
 I:(8)
 D:die fläche der europäischen gemeinschaft beträgt...
  :vorwärts und rückwärts gelesen ergäbe der text dieser lek-
- :tion keinen sinn.  
+ :tion keinen sinn.
  :...ach so, vögel ärgern keine bären.
 G:E_LESSON17
 
@@ -1008,15 +1031,15 @@ G:E_LESSON19
 
 *:S_LESSON20
 K:12:MENU
-B:                  Lesson 20: Linux - meine Freude
+B:                  Lesson 20: GNU/Linux - meine Freude
 T:
- : Linux meine Freude:
- : ein kleiner Bericht über den Umstieg auf Linux.
+ : GNU Linux meine Freude:
+ : ein kleiner Bericht über den Umstieg auf GNU Linux.
  : Erste Textübung. Achte am Ende der Zeilen auf
  : den rechtzeitigen Umbruch.
 *:LESSON20_D1
 I:(1)
-D:Linux - meine Freude
+D:GNU Linux - meine Freude
  :Es war ein ganz normaler Tag. Alles war wie immer. Ich kam
  :aus der Schule und setzte mich an den PC. Homepage verwal-
  :ten, Schülerdaten aktualisieren, Unterricht vorbereiten,
@@ -1029,7 +1052,7 @@ D:nebenbei ein paar MIDI-Files bearbeiten und E-Mail lesen.
 *:LESSON20_D3
 I:(3)
 D:nicht einmal sehr lange Mail reingekommen war, stand für
- :mich der Umstieg fest. Linux musste her. Ich wusste nicht,
+ :mich der Umstieg fest. GNU Linux musste her. Ich wusste nicht,
  :was da auf mich zukommen würde, doch das war mir egal. Es
  :konnte nur noch besser werden. Kostenlose Software, gute
 *:LESSON20_D4
@@ -1049,7 +1072,7 @@ I:(6)
 D:erkunden hatte, störte mich das weniger.
  :Eine vernünftige Mailkonfiguration habe ich erst Wochen
  :später eingerichtet, doch für den Anfang tat es Netscape.
- :Inzwischen arbeite ich seit 10 Monaten mit Linux, und ich
+ :Inzwischen arbeite ich seit 10 Monaten mit GNU Linux, und ich
 *:LESSON20_D7
 I:(7)
 D:habe keinen Tag davon bereut. Ich habe wieder angefangen,
@@ -1080,7 +1103,7 @@ D:Das Internet
  :jeder weiß, inzwischen drin. Wie aber alles ganz genau be-
 *:LESSON21_D2
 I:(2)
-D:gann, wissen die wenigsten. 
+D:gann, wissen die wenigsten.
  :In den späten sechziger Jahren begann die Advanced Research
  :Projects Agency des amerikanischen Verteidigungsministeri-
  :ums, kurz ARPA genannt, mit der Finanzierung ein experimen-
@@ -1089,7 +1112,7 @@ I:(3)
 D:tellen Wide Area Network, kurz WAN, um damit wichtige For-
  :schungsorganisationen in den Vereinigten Staaten von Ameri-
  :ka zu verbinden. Dieses Computernetz wurde ARPAnet genannt.
- :Das ursprüngliche Ziel bestand in der Freigabe teuerer und 
+ :Das ursprüngliche Ziel bestand in der Freigabe teuerer und
 *:LESSON21_D4
 I:(4)
 D:knapper Rechnerressourcen an Auftragnehmern der Regierung.
@@ -1104,9 +1127,9 @@ D:samen Entwicklung und Forschung über gemeinsam genutzte ent-
  :Suite nachgedacht. Es entstand das Transmission Control Pro-
 *:LESSON21_D6
 I:(6)
-D:tocol, Internet Protocol. Diese wurde im ARPAnet schnell 
+D:tocol, Internet Protocol. Diese wurde im ARPAnet schnell
  :Standard. Mit der Aufnahme dieses Protokolls in das populäre
- :BSD Unix-Betriebssystem, der University of California at 
+ :BSD Unix-Betriebssystem, der University of California at
  :Berkeley begann die Demokratisierung von Netzwerken. Es wur-
 *:LESSON21_D7
 I:(7)
@@ -1128,7 +1151,7 @@ T:
  : ein wenig über die Textfragmente in den Anfangslektionen
  : aufklärt, und gern fortgesetzt werden kann, z.B. mit ei-
  : nem ganz normalen Texteditor. Versuchs doch mal!
- : Die schönsten Geschichten könnten wir auf der 
+ : Die schönsten Geschichten könnten wir auf der
  : PingoS-Homepage veröffentlichen.
 *:LESSON22_D1
 I:(1)
@@ -1169,7 +1192,7 @@ D:lesen soll. Er setzt sich, räuspert sich noch einmal und
 *:LESSON22_D7
 I:(7)
 D:los - und atmet tief ein, um zu lesen, als plötzlich ein
- :lautes Krachen den Saal erfüllt. Das war kein Schuss, 
+ :lautes Krachen den Saal erfüllt. Das war kein Schuss,
  :dachte ich gleich. Derartige Geräusche kennt man ja aus
  :den Aktionfilmen im Fernsehen. Der Stuhl eines Gastes kann
 *:LESSON22_D8
@@ -1184,7 +1207,7 @@ B:                        Lesson 23: Gedicht
 T:
  : Gedichte haben recht unterschiedliche Strukturen.
  : Manchmal halten sie sich an keine Grammatik- oder
- : Rechtschreibregeln. Das nennt man dann 
+ : Rechtschreibregeln. Das nennt man dann
  : dichterische Freiheit.
 *:LESSON23_D1
 I:(1)
@@ -1242,7 +1265,7 @@ D:<><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
 I:(2)
 D:Die Zeichen < und > werden als Operatoren benutzt.
  :< ist der Eingabeoperator und > ist der Ausgabeoperator.
- :Mit ls > dateiname kann ich unter Linux eine Dateiliste
+ :Mit ls > dateiname kann ich unter GNU Linux eine Dateiliste
  :mit allen Dateien des akuellen Verzeichnisses anlegen.
 *:LESSON24_D3
 I:(3)
@@ -1255,7 +1278,7 @@ I:(4)
 D:< und > eingeschlossen.
  :Beispiele: <html> <head> <body> <a href... <img src...
  :<table> <hr> <br> <p> <li> <ol> <ul>
- :Auch in der XML-Syntax werden diese Zeichen verwendet um 
+ :Auch in der XML-Syntax werden diese Zeichen verwendet um
 *:LESSON24_D5
 I:(5)
 D:die Tags von den normalen Texten abzugrenzen.
@@ -1426,7 +1449,7 @@ I:(2)
 D:häufig. Aber es wird nicht nur in Firmenbezeichnungen ver-
  :wendet.
  :In der Bash dient das Kaufmanns-und als Operator.
- :Ein & bedeutet bitweises UND und 
+ :Ein & bedeutet bitweises UND und
 *:LESSON28_D3
 I:(3)
 D:ein && bedeutet logisches UND.
@@ -1435,7 +1458,7 @@ D:ein && bedeutet logisches UND.
  :Der Slash / wird häufig als Zeichen für die Division ver-
 *:LESSON28_D4
 I:(4)
-D:wendet. Unter LINUX ist es ein wesentliches Zeichen für
+D:wendet. Unter GNU/Linux ist es ein wesentliches Zeichen für
  :die Organisation der Verzeichnisstruktur. So ist / (root)
  :das Wurzelverzeichnis, von dem aus in Unterverseichnisse
  :verzweigt wird. /boot, /root, /opt, /usr, /var, /tmp,
@@ -1561,7 +1584,7 @@ T:
  : kleinen Fingern gegriffen. Dabei ist wieder auf
  : die wechselseitige Benutzung der <Shift>-Taste
  : zu achten.
- : 
+ :
  : Es sollte im System ein Tastaturmode eingestellt
  : sein, der solche zusammengesetzten Zeichen wie
  : éèê erlaubt. Die Einzelstellung (insofern mit dem
@@ -1604,7 +1627,7 @@ K:12:MENU
 B:                 Lesson 32: Sonderzeichen + * # '
 T:
  : + * # und ' sind mit dem kleinen Finger der rechten
- : Hand zu betätigen. Achte beim * und ' auf die 
+ : Hand zu betätigen. Achte beim * und ' auf die
  : Benutzung der linken <Shift>-Taste!
  : ' (Apostroph) ist nicht mit dem accent aigu zu
  : verwechseln!
@@ -1654,9 +1677,9 @@ G:E_LESSON32
 K:12:MENU
 B:    Lesson 33: Sitzung (ein Übungstext mit "Gänsefüßchen")
 T:
- : Übungstext: 
+ : Übungstext:
  : Versuche diesen Text möglichst fehlerfrei zu tippen.
- : Steigere Dein Tempo erst, wenn Du Dich absolut 
+ : Steigere Dein Tempo erst, wenn Du Dich absolut
  : sicher fühlst.
 *:LESSON33_D1
 I:(1)
@@ -1669,11 +1692,11 @@ I:(2)
 D:felnd auf Felix und man sah seinen Augen an, dass da nicht
  :nur Zweifel sondern auch besseres Wissen in dieser Frage
  :lag. "Äh, ich dachte ja,", kam Felix zögerlich mit der
- :Sprache raus, "wenn ich schon Linux auf dem Schulnetz fah-
+ :Sprache raus, "wenn ich schon GNU/Linux auf dem Schulnetz fah-
 *:LESSON33_D3
 I:(3)
 D:re, dann sollen auch die Schüler die Möglichkeit haben,
- :mit Linux zu arbeiten." Rainer sah immer noch skeptisch
+ :mit GNU/Linux zu arbeiten." Rainer sah immer noch skeptisch
  :aus. "Dann bist Du aber erst einmal der Einzige, der das
  :benutzen und den Schülern verständlich machen kann."
 *:LESSON33_D4
@@ -1721,7 +1744,7 @@ I:(1)
 D:ALLES WAS HIER STEHT IST, MIT FESTGESTELLTER UMSCHALTTASTE
  :Die <TAB>-Taste wird verwendet, um Text in Spalten zu sor-
  :tieren, oder Textstellen einzurücken. Damit verleiht man
- :dem Text ein übersichtlicheres Aussehen. 
+ :dem Text ein übersichtlicheres Aussehen.
 *:LESSON34_D2
 I:(2)
 D:Die <BACKSPACE>-Taste kann hier leider nicht geübt werden,
@@ -1851,9 +1874,9 @@ T:
 *:LESSON36_D1
 I:(1)
 D:/***************************************************************************
- :                          info.cpp  -  description                              
- :    begin                : Sun Jan 30 14:40:59 MET 2000 
- :    copyright            : (C) 1999 by Daniel Reith                         
+ :                          info.cpp  -  description
+ :    begin                : Sun Jan 30 14:40:59 MET 2000
+ :    copyright            : (C) 1999 by Daniel Reith
 *:LESSON36_D2
 I:(2)
 D:    email                : DanR@gmx.de
@@ -1865,7 +1888,7 @@ I:(3)
 D: *   This program is free software; you can redistribute it and/or modify  *
  : *   it under the terms of the GNU General Public License as published by  *
  : *   the Free Software Foundation; either version 2 of the License, or     *
- : *   (at your option) any later version.                                   * 
+ : *   (at your option) any later version.                                   *
 *:LESSON36_D4
 I:(4)
 D: *                                                                         *
@@ -1893,7 +1916,7 @@ D:END_EVENT_TABLE()
 *:LESSON36_D8
 I:(8)
 D:Info_Dialog::Info_Dialog(wxWindow* parent, wxWindowID id, const wxString& title,
- :const wxPoint& pos = wxDefaultPosition, 
+ :const wxPoint& pos = wxDefaultPosition,
  :const wxSize& size =wxDefaultSize, long style = wxDEFAULT_DIALOG_STYLE,
  :const wxString& name = "dialogBox") : wxDialog(parent, id, title, pos, size,
  :style, name)
@@ -2182,7 +2205,7 @@ M: "tipptrainer 0.6.0 lessons"
  :S_LESSON17 "Lesson 17: Die Buchstaben "ä" und "ü""
  :S_LESSON18 "Lesson 18: Das "ß" (sprich: "Ess-zet")"
  :S_LESSON19 "Lesson 19: GROSSSCHREIBUNG"
- :S_LESSON20 "Lesson 20: Linux - meine Freude"
+ :S_LESSON20 "Lesson 20: GNU/Linux - meine Freude"
  :S_LESSON21 "Lesson 21: Das Internet"
  :S_LESSON22 "Lesson 22: Lesung"
  :S_LESSON23 "Lesson 23: Gedicht"

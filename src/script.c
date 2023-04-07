@@ -2,21 +2,25 @@
  * GNU Typist  - interactive typing tutor program for UNIX systems
  *
  * Copyright (C) 1998, 1999, 2000, 2001, 2002, 2003
- * 					Simon Baldwin (simonb@sco.com)
- * Copyright (C) 2003  GNU Typist Development Team <bug-gtypist@gnu.org>
+ * 				 Simon Baldwin (simonb@sco.com)
+ * Copyright (C) 2003, 2004, 2008, 2009, 2011, 2012, 2013, 2014, 2016,
+ *               2017, 2018, 2019, 2020
+ *               Hynek Hanke, Dmitry Rutsky, Paul Goins, Felix Natter,
+ *               Tim Marston, clutton, Mihai Gătejescu
+ * Copyright (C) 2021, 2022, 2023 Felix Natter, Mihai Gătejescu
  *
- * This program is free software: you can redistribute it and/or modify
+ * GNU Typist is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * This program is distributed in the hope that it will be useful,
+ * GNU Typist is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ * along with GNU Typist.  If not, see <http://www.gnu.org/licenses/>.
  */
 
 #include "config.h"
@@ -33,7 +37,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
-#include <utf8.h>
+#include "utf8.h"
 
 #include "gettext.h"
 #define _(String) gettext (String)
@@ -65,7 +69,7 @@ int hash_label( char *label )
 {
   char	*p;				/* pointer through string */
   int	csum = 0;		/* sum of characters */
-  
+
   /* hash by summing the characters and taking modulo of the
      number of hash lists defined */
   for ( p = label; *p != ASCII_NULL; p++ )
@@ -156,7 +160,7 @@ void build_label_index( FILE *script ) {
         if( *line_iterator == ' ' )
           fatal_error( _("label contains space"), line );
         ++line_iterator;
-      }
+}
 
       /* make some space for the label string */
       new_label->label =
@@ -200,41 +204,37 @@ void build_label_index( FILE *script ) {
   get the next non-comment, non-blank line from the script file
   and check its basic format
 */
-void get_script_line( FILE *script, char *line )
+void get_script_line(FILE *script, char *line)
 {
   /* get lines until not empty/comment, or eof found */
-  fgets(line, MAX_SCR_LINE, script);
-  global_line_counter++;
-  while (! feof (script) && 
-	   (line_is_empty (line) ||
-	    SCR_COMMAND (line) == C_COMMENT ||
-	    SCR_COMMAND (line) == C_ALT_COMMENT)) 
-  {
-    fgets(line, MAX_SCR_LINE, script);
-    global_line_counter++;
-  }
+  do {
+      if (NULL == fgets(line, MAX_SCR_LINE, script) && ferror(script))
+          fatal_error(_("Error while reading file"), line);
+      ++global_line_counter;
+  } while (!feof(script) &&
+              (line_is_empty(line) || SCR_COMMAND(line) == C_COMMENT ||
+               SCR_COMMAND(line) == C_ALT_COMMENT)
+          );
 
   /* if a line was read then check it */
-  if ( ! feof( script )) 
+  if (!feof(script))
   {
     /* Get rid of trailing spaces and newline */
-    while( *line && isspace( line[strlen( line )-1] ) )
-      line [strlen (line) - 1] = ASCII_NULL;
+    while(*line && isspace(line[strlen(line)-1]))
+      line[strlen(line) - 1] = ASCII_NULL;
 
     // input is UTF-8 !!
     int numChars = utf8len(line);
     if (numChars == -1)
-      fatal_error( _("Invalid multibyte sequence (wrong encoding?)"), line);
-    if ( numChars < MIN_SCR_LINE )
-      fatal_error( _("data shortage"), line );
-    if ( SCR_SEP( line ) != C_SEP )
-      fatal_error( _("missing ':'"), line );
-    if ( SCR_COMMAND( line ) != C_LABEL 
-         && SCR_COMMAND( line ) != C_GOTO 
-         && SCR_COMMAND( line ) != C_YGOTO
-         && SCR_COMMAND( line ) != C_NGOTO
-         && utf8len(SCR_DATA( line )) > COLS )
-      fatal_error( _("line too long for screen"), line );
+      fatal_error(_("Invalid multibyte sequence (wrong encoding?)"), line);
+    if (numChars < MIN_SCR_LINE)
+      fatal_error(_("data shortage"), line);
+    if (SCR_SEP(line) != C_SEP)
+      fatal_error(_("missing ':'"), line);
+    if (SCR_COMMAND(line) != C_LABEL && SCR_COMMAND(line) != C_GOTO &&
+         SCR_COMMAND(line) != C_YGOTO && SCR_COMMAND(line) != C_NGOTO &&
+         utf8len(SCR_DATA(line)) > COLS)
+      fatal_error(_("line too long for screen"), line);
   }
 }
 
@@ -247,24 +247,24 @@ char *buffer_command( FILE *script, char *line )
   char	*data = NULL;			/* data string */
 
   /* get the complete exercise into a single string */
-  do 
+  do
   {
     data = (char*)realloc( data, (data ? strlen( data ) : 0) +
            strlen(SCR_DATA( line )) +
            strlen(STRING_NL) + 1 );
     if ( data == NULL )
       fatal_error( _("internal error: malloc"), line );
-    
+
     /* store the data in the allocated area */
     if ( total_chars == 0 )
       strcpy( data, "" );
     strcat( data, SCR_DATA( line ) );
     strcat( data, STRING_NL );
     total_chars = strlen( data );
-    
+
     /* and get the next script line */
     get_script_line( script, line );
-  } 
+  }
   while ( SCR_COMMAND( line ) == C_CONT && ! feof( script ));
 
   /* return our (malloced) data */
@@ -279,21 +279,20 @@ char *buffer_command( FILE *script, char *line )
 */
 void seek_label( FILE *script, char *label, char *ref_line )
 {
-  struct label_entry	*check_label;	/* pointer through list */
-  int	hash;                 				/* hash index */
-  char	err[MAX_SCR_LINE];      		/* error message string */
+  struct label_entry *check_label;      /* pointer through list */
+  int    hash;                 			/* hash index */
+  char   err[MAX_SCR_LINE];             /* error message string */
 
-  if (!label)
-    do_exit (script);
-  
+  if (!label) do_exit(script);
+
   __update_last_label (label);
-		  
+
   /* find the right hash list for the label */
   hash = hash_label( label );
-  
+
   /* search the linked list for the label */
   for ( check_label = global_label_list[ hash ]; check_label != NULL;
-	check_label = check_label->next ) 
+        check_label = check_label->next )
   {
     /* see if this is our label */
     if ( strcmp( check_label->label, label ) == 0 )
@@ -301,7 +300,7 @@ void seek_label( FILE *script, char *label, char *ref_line )
   }
 
   /* see if the label was not found in the file */
-  if ( check_label == NULL ) 
+  if ( check_label == NULL )
   {
     sprintf( err, _("label '%s' not found"), label );
     fatal_error( err, ref_line );
@@ -316,22 +315,20 @@ void seek_label( FILE *script, char *label, char *ref_line )
 /*
   exit from the program (implied on eof)
 */
-void do_exit( FILE *script ) 
+void do_exit(FILE *script)
 {
   /* close up all files, reset the screen stuff, and exit */
-  fclose( script );
+  fclose(script);
   /* if ( cl_colour && has_colors() )*/
-  wbkgdset( stdscr, 0 );
+  wbkgdset(stdscr, 0);
   clear(); refresh(); endwin();
   if (isUTF8Locale)
   {
       printf(_("Happy Typing!\n\n"));
-  }
-  else
-  {
+  } else {
       printf("%s", convertUTF8ToCurrentEncoding(_("Happy Typing!\n\n")));
   }
-  exit( 0 );
+  exit(0);
 }
 
 /*
