@@ -1,21 +1,27 @@
 #!/usr/bin/perl -w
-
 # converts from ktouch's OLD .ktouch (<<1.6) to gtypist's .typ-file
 # send comments and suggestions to bug-gtypist@gnu.org
 
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation, either version 3
-# of the License, or (at your option) any later version.
-# 
-# This program is distributed in the hope that it will be useful,
+# Copyright (C) 2011, 2012, 2013, 2014, 2016, 2017, 2018, 2019, 2020
+#               Felix Natter
+# Copyright (C) 2021, 2022, 2023 Felix Natter, Mihai Gătejescu
+
+# Author: Felix Natter <fnatter@gmx.net>
+
+# This file is part of GNU Typist
+
+# GNU Typist is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+
+# GNU Typist is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU General Public License for more details.
-# 
+
 # You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+# along with GNU Typist.  If not, see <http://www.gnu.org/licenses/>.
 
 use strict qw(subs vars refs);
 use Cwd; # Cwd::getcwd
@@ -87,7 +93,7 @@ sub convert_lesson($**)
 while(defined($ktouchfilename = shift(@ARGV)))
 {
     if (substr($ktouchfilename, rindex($ktouchfilename, ".")) ne ".ktouch" ||
-	! (-f $ktouchfilename)) { 
+	! (-f $ktouchfilename)) {
 	print "Skipping $ktouchfilename.\n";
 	next;
     }
@@ -100,7 +106,7 @@ while(defined($ktouchfilename = shift(@ARGV)))
     open(TYPFILE, ">$typfilename") ||
 	die "Couldn't open $typfilename for writing: $!";
 
-    print TYPFILE "# created by ktouch2typ.pl from " . 
+    print TYPFILE "# created by ktouch2typ.pl from " .
 	getAbsoluteFilename($ktouchfilename) . "\n# on " . `date`;
     print TYPFILE "# ktouch2typ.pl is part of gtypist (http://www.gnu.org/software/gtypist/)\n";
     print TYPFILE "# ktouch can be found at http://ktouch.sourceforge.net\n";
@@ -116,7 +122,7 @@ while(defined($ktouchfilename = shift(@ARGV)))
     my @lesson_names = (); # this is needed for the menu
     while (!$done)
     {
-	while (defined($line = <KTOUCHFILE>) && isBlankorComment($line)) { 
+	while (defined($line = <KTOUCHFILE>) && isBlankorComment($line)) {
 	    if (isComment($line)) {
 		# make sure that '#' is at the beginning of the line
 		$line =~ s/^\s*//;
@@ -124,7 +130,7 @@ while(defined($ktouchfilename = shift(@ARGV)))
 	    }
 	}
 	if (!defined($line)) { $done = 1; next;	}
-	
+
 	print TYPFILE "*:S_LESSON$lesson_counter\n";
 	print TYPFILE "K:12:MENU\n";
 	# $line contains the first non-blank, non-comment line (which is the
@@ -136,7 +142,7 @@ while(defined($ktouchfilename = shift(@ARGV)))
 	convert_lesson($lesson_counter, \*KTOUCHFILE, \*TYPFILE);
 
 	print TYPFILE "G:E_LESSON$lesson_counter\n\n";
-	
+
 	if (!defined($line)) {
 	    $done = 1;
 	}

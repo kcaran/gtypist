@@ -3,21 +3,24 @@
  *
  * Copyright (C) 1998, 1999, 2000, 2001, 2002, 2003
  *               Simon Baldwin (simonb@sco.com)
- * Copyright (C) 2003, 2004, 2008, 2009, 2011, 2012
- *               GNU Typist Development Team <bug-gtypist@gnu.org>
+ * Copyright (C) 2003, 2004, 2008, 2009, 2011, 2012, 2013, 2014, 2016,
+ *               2017, 2018, 2019, 2020
+ *               Hynek Hanke, Dmitry Rutsky, Paul Goins, Tim Marston,
+ *               Felix Natter, clutton, Mihai Gătejescu
+ * Copyright (C) 2021, 2022, 2023 Felix Natter, Mihai Gătejescu
  *
- * This program is free software: you can redistribute it and/or modify
+ * GNU Typist is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * This program is distributed in the hope that it will be useful,
+ * GNU Typist is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ * along with GNU Typist.  If not, see <http://www.gnu.org/licenses/>.
  */
 
 #include "config.h"
@@ -68,7 +71,7 @@ int isUTF8Locale; /* does the current locale have a UTF-8 encoding? */
 /* character to be display to represent "enter key" */
 /* TODO: this requires beginner mode!
 #define RETURN_CHARACTER 0x000023CE */
-#define RETURN_CHARACTER 0x00000020 
+#define RETURN_CHARACTER 0x00000020
 
 /* a definition of a boolean type */
 #ifndef bool
@@ -130,7 +133,7 @@ static short	colour_array[] = {
 static struct gengetopt_args_info cl_args;  /* program options */
 static int	cl_fgcolour = 7;		/* fg colour */
 static int	cl_bgcolour = 0;		/* bg colour */
-static int	cl_banner_bg_colour = 0;    /* banner bg colorr */
+static int	cl_banner_bg_colour = 0;    /* banner bg colour */
 static int	cl_banner_fg_colour = 6;    /* banner fg colour */
 static int	cl_prog_name_colour = 5;    /* program name colour */
 static int 	cl_prog_version_colour = 1; /* program version colour */
@@ -139,24 +142,24 @@ static int 	cl_prog_version_colour = 1; /* program version colour */
 static bool	global_resp_flag = TRUE;
 static char	global_prior_command = C_CONT;
 
-static float	global_error_max = -1.0;
+static float global_error_max = -1.0f;
 static bool	global_error_max_persistent = FALSE;
 
-static struct	label_entry *global_on_failure_label = NULL;
+static struct label_entry *global_on_failure_label = NULL;
 static bool	global_on_failure_label_persistent = FALSE;
 
-static char 	*global_script_filename = NULL;
+static char *global_script_filename = NULL;
 
 static char	*global_home_dir = NULL;
 
 /* a global area for associating function keys with labels */
 #define NFKEYS			12		/* num of function keys */
-static char	*fkey_bindings[ NFKEYS ] =
+static char	*fkey_bindings[NFKEYS] =
   { NULL, NULL, NULL, NULL, NULL, NULL,
     NULL, NULL, NULL, NULL, NULL, NULL };
 /* table of pseudo-function keys, to allow ^Q to double as Fkey1, etc */
 #define	CTRL_OFFSET		0100		/* ctrl keys are 'X' - 0100 */
-static	char	pfkeys[ NFKEYS ] =
+static	char	pfkeys[NFKEYS] =
   { 'Q'-CTRL_OFFSET, 'W'-CTRL_OFFSET, 'E'-CTRL_OFFSET, 'R'-CTRL_OFFSET,
     'T'-CTRL_OFFSET, 'Y'-CTRL_OFFSET, 'U'-CTRL_OFFSET, 'I'-CTRL_OFFSET,
     'O'-CTRL_OFFSET, 'P'-CTRL_OFFSET, 'A'-CTRL_OFFSET, 'S'-CTRL_OFFSET };
@@ -166,7 +169,7 @@ static bool user_is_always_sure = FALSE;
 /* prototypes */
 
 static int getch_fl( int cursor_char );
-static bool wait_user (FILE *script, char *message, char *mode );
+static bool wait_user_input (FILE *script, char *message, char *mode );
 static void display_speed( int total_chars, double elapsed_time,
                           int errcount );
 static void do_keybind( FILE *script, char *line );
@@ -187,23 +190,23 @@ static void catcher( int signal );
 static FILE *open_script( const char *filename );
 static void do_bell();
 static bool get_best_speed( const char *script_filename,
-                    const char *excersise_label, double *adjusted_cpm );
-static void put_best_speed( const char *script_filename,
-                    const char *excersise_label, double adjusted_cpm );
+                            const char *excersise_label, double *adjusted_cpm );
+static void put_best_speed(const char *script_filename,
+                           const char *exercise_label, double adjusted_cpm );
 const char *get_bestlog_filename();
 
-void bind_F12 (const char *label)
+void bind_F12(const char *label)
 {
   if (!label)
      return;
 
-  if (fkey_bindings [11])
-     free (fkey_bindings [11]);
-  fkey_bindings [11] = strdup (label);
-  if (! fkey_bindings [11])
+  if (fkey_bindings[11])
+     free (fkey_bindings[11]);
+  fkey_bindings[11] = strdup(label);
+  if (!fkey_bindings[11])
   {
-       perror ("strdup");
-       fatal_error (_("internal error: strdup"), label);
+       perror("strdup");
+       fatal_error(_("internal error: strdup"), label);
   }
 }
 
@@ -215,68 +218,62 @@ void bind_F12 (const char *label)
   xterms seem not make the cursor invisible either.
 */
 static
-int getch_fl( int cursor_char )
+int getch_fl(int cursor_char)
 {
-  int	y, x;				/* saved cursor posn */
+  int	y, x;			    	/* cursor position */
   int	return_char;			/* return value */
   bool	alternate = FALSE;		/* flashes control */
 
   /* save the cursor position - we're going to need it */
-  getyx( stdscr, y, x );
+  getyx(stdscr, y, x);
 
   /* if no cursor then do our best not to show one */
-  if ( cursor_char == ASCII_NULL )
-    {
+  if (cursor_char == ASCII_NULL)
+  {
       /* degrade to cursor-less getch */
-      curs_set( 0 ); refresh();
-      move( LINES - 1, COLS - 1 );
+      curs_set(0); refresh();
+      move(LINES - 1, COLS - 1);
       cbreak();
       get_widech(&return_char);
-      move( y, x );
-    }
-  else
-    {
+      move(y, x);
+  } else {
       /* produce a flashing cursor, or not, as requested */
-      if ( !cl_args.term_cursor_flag ) {
-        /* go for the flashing block here */
+      if (!cl_args.term_cursor_flag)
+      { /* go for the flashing block here */
         wideaddch_rev(cursor_char);
-        curs_set( 0 ); refresh();
-        move( LINES - 1, COLS - 1 );
-        if ( ( cl_args.curs_flash_arg / 2 ) > 0 )
-          {
-            halfdelay( cl_args.curs_flash_arg / 2 );
-            while ( get_widech(&return_char) == ERR )
-              {
-                move( y, x );
-                if ( alternate )
+        curs_set(0); refresh();
+        move(LINES - 1, COLS - 1);
+        if ((cl_args.curs_flash_arg / 2) > 0)
+        {
+            halfdelay(cl_args.curs_flash_arg / 2);
+            while (get_widech(&return_char) == ERR)
+            {
+                move(y, x);
+                if (alternate)
                   wideaddch_rev(cursor_char);
                 else
                   wideaddch(cursor_char);
-                move( LINES - 1, COLS - 1 );
+                move(LINES - 1, COLS - 1);
                 alternate = !alternate;
-              }
-          }
-        else
-          {
-            cbreak(); 
+            }
+        } else {
+            cbreak();
             get_widech(&return_char);
-          }
-        move( y, x );
+        }
+        move(y, x);
         wideaddch(cursor_char);
-        move( y, x );
-      }
-      else
-        {
+        move(y, x);
+      } else {
           /* just use the terminal's cursor - this is easy */
-          curs_set( 1 ); refresh();
+          curs_set(1); refresh();
           cbreak(); //return_char = getch();
           get_widech(&return_char);
-          curs_set( 0 ); refresh();
+          curs_set(0); refresh();
         }
     }
 
   /* return what key was pressed */
-  return ( return_char );
+  return (return_char);
 }
 
 /*
@@ -284,39 +281,39 @@ int getch_fl( int cursor_char )
   returned if the user pressed escape to indicate that seek_label was called
 */
 static
-bool wait_user (FILE *script, char *message, char *mode)
+bool wait_user_input(FILE *script, char *message, char *mode)
 {
   int	resp;			/* response character */
   bool	seek_done = FALSE;	/* was seek_label called? */
 
   /* move to the message line print a prompt */
-  move( MESSAGE_LINE, 0 ); clrtoeol();
-  move( MESSAGE_LINE, COLS - utf8len( mode ) - 2 );
+  move(MESSAGE_LINE, 0); clrtoeol();
+  move(MESSAGE_LINE, COLS - utf8len(mode) - 2);
   wideaddstr_rev(mode);
-  move( MESSAGE_LINE, 0 );
+  move(MESSAGE_LINE, 0);
   wideaddstr_rev(message);
 
   do {
-    resp = getch_fl (ASCII_NULL);
+    resp = getch_fl(ASCII_NULL);
 
     /* in tutorial mode only, escape has the special purpose that we exit to a
        menu (or quit if there is none) */
     if (resp == ASCII_ESC && mode == MODE_TUTORIAL)
     {
       // Return to the last F12-binded location
-      if( fkey_bindings[ 11 ] && *( fkey_bindings[ 11 ] ) )
+      if (fkey_bindings[11] && *(fkey_bindings[11]))
       {
-          seek_label( script, fkey_bindings[ 11 ], NULL );
+          seek_label(script, fkey_bindings[11], NULL);
           seek_done = TRUE;
       }
       else
-          do_exit( script );
+          do_exit(script);
       break;
     }
   } while (resp != ASCII_NL && resp != ASCII_SPACE && resp != ASCII_ESC);
 
   /* clear the message line */
-  move( MESSAGE_LINE, 0 ); clrtoeol();
+  move(MESSAGE_LINE, 0); clrtoeol();
 
   return seek_done;
 }
@@ -438,10 +435,10 @@ void do_tutorial( FILE *script, char *line )
   /* wait for a return, unless the next command is a query,
      when we can skip it to save the user keystrokes */
   if ( SCR_COMMAND( line ) != C_QUERY )
-    seek_done = wait_user (script, WAIT_MESSAGE, MODE_TUTORIAL);
+    seek_done = wait_user_input(script, WAIT_MESSAGE, MODE_TUTORIAL);
   global_prior_command = C_TUTORIAL;
 
-  /* if seek_label has been called (in wait_user) then we need to read in the
+  /* if seek_label has been called (in wait_user_input) then we need to read in the
      next line of the script in to `line` */
   if (seek_done)
     get_script_line( script, line );
@@ -503,20 +500,20 @@ static
 void do_drill( FILE *script, char *line )
 {
 
-  int	errors = 0;		 /* error count */
-  int	linenum;		 /* line counter */
+  int	errors = 0;		     /* error count */
+  int	linenum;		       /* line counter */
   char	*data = NULL;		 /* data string */
   int	lines_count = 0;	 /* measures drill length */
-  int	rc;			 /* curses char typed */
+  int	rc;			           /* curses char typed */
   wchar_t  *widep, *wideData;
   double start_time=0, end_time; /* timing variables */
+  struct timeval tv;      /* temp timeval used to compute timing variables */
   char	message[MAX_WIN_LINE];	 /* message buffer */
-  char	drill_type;		 /* note of the drill type */
-  int	chars_typed;		 /* count of chars typed */
+  char	drill_type;		    /* note of the drill type */
+  int	chars_typed;		    /* count of chars typed */
   int	chars_in_the_line_typed;
   bool  seek_done = FALSE;       /* was there a seek_label before exit? */
-  int	error_sync;		 /* error resync state */
-  struct timeval tv;
+  int	error_sync;		      /* error resync state */
 
   /* note the drill type to see if we need to make the user repeat */
   drill_type = SCR_COMMAND( line );
@@ -530,70 +527,79 @@ void do_drill( FILE *script, char *line )
 
   /* count the lines in this exercise, and check the result
      against the screen length */
-  for ( widep = wideData, lines_count = 0; *widep != ASCII_NULL; widep++ )
-    {
-      if ( *widep == ASCII_NL)
-        lines_count++;
-    }
+  for ( widep = wideData, lines_count = 0; *widep != ASCII_NULL; ++widep )
+  {
+    if ( *widep == ASCII_NL)
+      ++lines_count;
+  }
   if ( DP_TOP_LINE + lines_count * 2 > LINES )
     fatal_error( _("data exceeds screen length"), line );
 
   /* if the last command was a tutorial, ensure we have
      the complete screen */
   if ( global_prior_command == C_TUTORIAL )
-    {
-      move( T_TOP_LINE, 0 ); clrtobot();
-    }
+  {
+    move( T_TOP_LINE, 0 ); clrtobot();
+  }
 
   while (1)
-    {
-
+  {
       /* display drill pattern */
       linenum = DP_TOP_LINE;
       move( linenum, 0 ); clrtobot();
-      for ( widep = wideData; *widep != ASCII_NULL; widep++ )
-        {
-          if ( *widep != ASCII_NL )
-            wideaddch(*widep);
-          else
-          {
-              /* emit return character */
-              wideaddch(RETURN_CHARACTER);
+      for ( widep = wideData; *widep != ASCII_NULL; ++widep )
+      {
+        if ( *widep != ASCII_NL )
+          wideaddch(*widep);
+        else {
+            /* emit return character */
+            wideaddch(RETURN_CHARACTER);
 
-              /* newline - move down the screen */
-              linenum++; linenum++;	/* alternate lines */
-              move( linenum, 0 );
-          }
+            /* newline - move down the screen */
+            ++linenum; ++linenum;	/* alternate lines */
+            move( linenum, 0 );
         }
+      }
       move( MESSAGE_LINE, COLS - utf8len( MODE_DRILL ) - 2 );
       ADDSTR_REV( MODE_DRILL );
 
       /* run the drill */
       linenum = DP_TOP_LINE + 1;
       move( linenum, 0 );
-      for ( widep = wideData; *widep == ASCII_SPACE && *widep != ASCII_NULL; widep++ )
+      for ( widep = wideData; *widep == ASCII_SPACE && *widep != ASCII_NULL; ++widep )
         wideaddch(*widep);
 
-      for ( chars_typed = 0, errors = 0, error_sync = 0,
-              chars_in_the_line_typed = 0;
+      bool after_newline = FALSE;
+      for ( chars_typed = 0,
+            errors = 0,
+            error_sync = 0,
+            chars_in_the_line_typed = 0;
             *widep != ASCII_NULL; widep++ )
-        {
+      {
+          /* Jump over whitespaces at the beginning of lines */
+          if (after_newline && (*widep == ASCII_SPACE || *widep == ASCII_TAB))
+          {
+            wideaddch(*widep);
+            continue;
+          } else
+            after_newline = FALSE;
+
           do
-            {
+          {
               rc = getch_fl (chars_in_the_line_typed >= COLS ? *(widep + 1) :
-                             (*widep == ASCII_TAB ? ASCII_TAB : ASCII_SPACE));
-            }
+                            (*widep == ASCII_TAB ? ASCII_TAB : ASCII_SPACE));
+          }
           while ( rc == GTYPIST_KEY_BACKSPACE || rc == ASCII_BS || rc == ASCII_DEL
                   || rc == KEY_RESIZE ); /* ignore terminal resize event */
 
           /* start timer on first char entered */
           if ( chars_typed == 0 )
-            {
-              gettimeofday(&tv, NULL);
-              start_time = tv.tv_sec + tv.tv_usec / 1000000.0;
-            }
-          chars_typed++;
-          error_sync--;
+          {
+            gettimeofday(&tv, NULL);
+            start_time = tv.tv_sec + tv.tv_usec / 1000000.0;
+          }
+          ++chars_typed;
+          --error_sync;
 
           /* ESC is "give up"; ESC at beginning of exercise is "skip lesson"
              (this is handled outside the for loop) */
@@ -602,53 +608,47 @@ void do_drill( FILE *script, char *line )
 
           /* check that the character was correct */
           if ( rc == *widep || ( cl_args.word_processor_flag &&
-				 rc == ASCII_SPACE && *widep == ASCII_NL ))
-            {
-              if (cl_args.word_processor_flag && rc == ASCII_SPACE &&
-		  *widep == ASCII_NL)
+               rc == ASCII_SPACE && *widep == ASCII_NL ))
+          {
+            if (cl_args.word_processor_flag && rc == ASCII_SPACE &&
+                *widep == ASCII_NL)
+              chars_in_the_line_typed = 0;
+            else {
+              if (rc != ASCII_NL)
+              {
+                wideaddch(rc);
+                ++chars_in_the_line_typed;
+              } else {
+                wideaddch(RETURN_CHARACTER);
                 chars_in_the_line_typed = 0;
-              else
-                {
-                  if (rc != ASCII_NL)
-                    {
-                      wideaddch(rc);
-                      chars_in_the_line_typed ++;
-                    }
-                  else
-                    {
-                      wideaddch(RETURN_CHARACTER);
-                      chars_in_the_line_typed = 0;
-                    }
-                }
+              }
             }
-          else
-            {
+          } else {
               /* try to sync with typist behind */
               if ( error_sync >= 0 && widep > wideData && rc == *(widep-1) )
-                {
-                  widep--;
-                  continue;
-                }
+              {
+                --widep;
+                continue;
+              }
 
               if (chars_in_the_line_typed < COLS)
                 {
-             // sprintf( message, "%d %d %d", cl_args.show_errors_flag, *widep, rc );
                   wideaddch_rev( *widep == ASCII_NL ? DRILL_NL_ERR :
                                  (*widep == ASCII_TAB ?  ASCII_TAB : 
                                  (cl_args.show_errors_flag
-                                  && rc != ASCII_NL && rc != ASCII_TAB ?
-                                               rc : DRILL_CH_ERR)));
-                  chars_in_the_line_typed ++;
-                }
+                                 && rc != ASCII_NL && rc != ASCII_TAB ?
+                                 rc : DRILL_CH_ERR)));
+                ++chars_in_the_line_typed;
+              }
 
               if (*widep == ASCII_NL)
                 chars_in_the_line_typed = 0;
 
               if ( ! cl_args.silent_flag )
-                {
-                  do_bell();
-                }
-              errors++;
+              {
+                do_bell();
+              }
+              ++errors;
               error_sync = 1;
 
               /* try to sync with typist ahead? */
@@ -657,120 +657,121 @@ void do_drill( FILE *script, char *line )
                   if ( rc == *(widep+1) )
                   {
                       ungetch( rc );
-                      error_sync++;
+                      ++error_sync;
                   }
               }
-            }
+          }
 
           /* move screen location if newline */
           if ( *widep == ASCII_NL )
-            {
-              linenum++; linenum++;
-              move( linenum, 0 );
-            }
+          {
+            after_newline = TRUE;
+            ++linenum; ++linenum;
+            move( linenum, 0 );
+          }
 
           /* perform any other word processor like adjustments */
           if ( cl_args.word_processor_flag )
+          {
+            if ( rc == ASCII_SPACE )
             {
-              if ( rc == ASCII_SPACE )
+              while ( *(widep+1) == ASCII_SPACE
+                      && *(widep+1) != ASCII_NULL )
+              {
+                ++widep;
+                wideaddch(*widep);
+                ++chars_in_the_line_typed;
+              }
+            }
+            else if ( rc == ASCII_NL )
+            {
+              while ( ( *(widep+1) == ASCII_SPACE
+                        || *(widep+1) == ASCII_NL )
+                        && *(widep+1) != ASCII_NULL )
+              {
+                ++widep;
+                wideaddch(*widep);
+                ++chars_in_the_line_typed;
+                if ( *widep == ASCII_NL )
                 {
-                  while ( *(widep+1) == ASCII_SPACE
-                          && *(widep+1) != ASCII_NULL )
-                    {
-                      widep++;
-                      wideaddch(*widep);
-                      chars_in_the_line_typed ++;
-                    }
-                }
-              else if ( rc == ASCII_NL )
-                {
-                  while ( ( *(widep+1) == ASCII_SPACE
-                            || *(widep+1) == ASCII_NL )
-                          && *(widep+1) != ASCII_NULL )
-                    {
-                      widep++;
-                      wideaddch(*widep);
-                      chars_in_the_line_typed ++;
-                      if ( *widep == ASCII_NL ) {
-                        linenum++; linenum++;
-                        move( linenum, 0 );
-                        chars_in_the_line_typed = 0;
-                      }
-                    }
-                }
-              else if ( isalpha(*widep) && *(widep+1) == ASCII_DASH
-                        && *(widep+2) == ASCII_NL )
-                {
-                  widep++;
-                  wideaddch(*widep);
-                  widep++;
-                  wideaddch(*widep);
-                  linenum++; linenum++;
+                  ++linenum; ++linenum;
                   move( linenum, 0 );
                   chars_in_the_line_typed = 0;
                 }
-            }
+              }
+            } else if ( isalpha(*widep) && *(widep+1) == ASCII_DASH
+                      && *(widep+2) == ASCII_NL )
+              {
+                ++widep;
+                wideaddch(*widep);
+                ++widep;
+                wideaddch(*widep);
+                ++linenum; ++linenum;
+                move( linenum, 0 );
+                chars_in_the_line_typed = 0;
+              }
+          }
         }
 
-      /* ESC not at the beginning of the lesson: "give up" */
-      if ( rc == ASCII_ESC && chars_typed != 1)
-        continue; /* repeat */
+        /* ESC not at the beginning of the lesson: "give up" */
+        if ( rc == ASCII_ESC && chars_typed != 1)
+          continue; /* repeat */
 
-      /* skip timings and don't check error-pct if exit was through ESC */
-      if ( rc != ASCII_ESC )
+        /* skip timings and don't check error-pct if exit was through ESC */
+        if ( rc != ASCII_ESC )
         {
           /* display timings */
           gettimeofday(&tv, NULL);
           end_time = tv.tv_sec + tv.tv_usec / 1000000.0;
           if ( ! cl_args.notimer_flag )
-            {
-              display_speed( chars_typed, end_time - start_time,
-                             errors );
-            }
+          {
+            display_speed( chars_typed, end_time - start_time,
+                           errors );
+          }
 
           /* check whether the error-percentage is too high (unless in d:) */
           if (drill_type != C_DRILL_PRACTICE_ONLY &&
               is_error_too_high(chars_typed, errors))
+          {
+            sprintf( message, ERROR_TOO_HIGH_MSG, global_error_max );
+              wait_user_input(script, message, MODE_DRILL);
+
+            /* check for F-command */
+            if (global_on_failure_label != NULL)
             {
-              sprintf( message, ERROR_TOO_HIGH_MSG, global_error_max );
-              wait_user (script, message, MODE_DRILL);
-
-              /* check for F-command */
-              if (global_on_failure_label != NULL)
-                {
-                  /* move to the label position in the file */
-                  if (fseek(script, global_on_failure_label->offset, SEEK_SET )
-                      == -1)
-                    fatal_error( _("internal error: fseek"), NULL );
-                  global_line_counter = global_on_failure_label->line_count;
-                  /* tell the user about the misery :) */
-                  sprintf(message,SKIPBACK_VIA_F_MSG,
-                          global_on_failure_label->label);
-                  /* reset value unless persistent */
-                  if (!global_on_failure_label_persistent)
-                    global_on_failure_label = NULL;
-                  wait_user (script, message, MODE_DRILL);
-                  seek_done = TRUE;
-                  break;
-                }
-
-              continue;
+              /* move to the label position in the file */
+              if (fseek(script, global_on_failure_label->offset, SEEK_SET )
+                  == -1)
+                fatal_error( _("internal error: fseek"), NULL );
+              global_line_counter = global_on_failure_label->line_count;
+              /* tell the user about the misery :) */
+              sprintf(message,SKIPBACK_VIA_F_MSG,
+                      global_on_failure_label->label);
+              /* reset value unless persistent */
+              if (!global_on_failure_label_persistent)
+                global_on_failure_label = NULL;
+                wait_user_input(script, message, MODE_DRILL);
+              seek_done = TRUE;
+              break;
             }
+
+            continue;
+          }
         }
 
-      /* ask the user whether he/she wants to repeat or exit */
-      if ( rc == ASCII_ESC && cl_args.no_skip_flag ) /* honor --no-skip */
-        rc = do_query_repeat (script, FALSE);
-      else
-        rc = do_query_repeat (script, TRUE);
-      if (rc == 'E') {
-        seek_done = TRUE;
-        break;
-      }
-      if (rc == 'N')
-        break;
-
-    }
+        /* ask the user whether he/she wants to repeat or exit */
+        if ( rc == ASCII_ESC && cl_args.no_skip_flag ) /* honor --no-skip */
+          rc = do_query_repeat (script, FALSE);
+        else
+          rc = do_query_repeat (script, TRUE);
+        if (rc == 'E')
+        {
+          seek_done = TRUE;
+          break;
+        }
+        if (rc == 'N')
+          break;
+  }
 
   /* free the malloced memory */
   free( data );
@@ -796,21 +797,20 @@ static
 void do_speedtest( FILE *script, char *line )
 {
   int	errors = 0;		 /* error count */
-  int	*errors_buf;		 /* error localization buffer */
+  int	*errors_buf;	 /* error localization buffer */
   int	errors_pos;		 /* error localization position */
-  int	err_idx;		 /* errors counter */
-  int	linenum;		 /* line counter */
+  int	linenum;		   /* line counter */
   char	*data = NULL;		 /* data string */
   int	lines_count = 0;	 /* measures exercise length */
-  int	rc;			 /* curses char typed */
+  int	rc;			       /* curses char typed */
   wchar_t  *widep, *wideData;
   double start_time=0, end_time; /* timing variables */
+  struct timeval tv;     /* temp timeval used to compute timing variables */
   char	message[MAX_WIN_LINE];	 /* message buffer */
-  char	drill_type;		 /* note of the drill type */
-  int	chars_typed;		 /* count of chars typed */
+  char	drill_type;	  	 /* note of the drill type */
+  int	chars_typed;	  	 /* count of chars typed */
   bool  seek_done = FALSE;       /* was there a seek_label before exit? */
-  int	error_sync;		 /* error resync state */
-  struct timeval tv;
+  int	error_sync;		     /* error resync state */
 
   /* note the drill type to see if we need to make the user repeat */
   drill_type = SCR_COMMAND( line );
@@ -837,183 +837,186 @@ void do_speedtest( FILE *script, char *line )
 
   /* count the lines in this exercise, and check the result
      against the screen length */
-  for ( widep = wideData, lines_count = 0; *widep != ASCII_NULL; widep++ )
-    {
-      if ( *widep == ASCII_NL)
-        lines_count++;
-    }
+  for ( widep = wideData, lines_count = 0; *widep != ASCII_NULL; ++widep )
+  {
+    if ( *widep == ASCII_NL)
+      ++lines_count;
+  }
   if ( DP_TOP_LINE + lines_count > LINES )
     fatal_error( _("data exceeds screen length"), line );
 
   /* if the last command was a tutorial, ensure we have
      the complete screen */
   if ( global_prior_command == C_TUTORIAL )
-    {
-      move( T_TOP_LINE, 0 ); clrtobot();
-    }
+  {
+    move( T_TOP_LINE, 0 ); clrtobot();
+  }
 
   while (1)
-    {
+  {
       /* display speed test pattern */
       linenum = DP_TOP_LINE;
       move( linenum, 0 ); clrtobot();
-      for ( widep = wideData; *widep != ASCII_NULL; widep++ )
+      for ( widep = wideData; *widep != ASCII_NULL; ++widep )
+      {
+        if ( *widep != ASCII_NL )
         {
-          if ( *widep != ASCII_NL )
-            {
-              wideaddch(*widep);
-            }
-          else
-            {
-              /* emit return character */
-              wideaddch(RETURN_CHARACTER);
+          wideaddch(*widep);
+        } else {
+          /* emit return character */
+          wideaddch(RETURN_CHARACTER);
 
-              /* newline - move down the screen */
-              linenum++;
-              move( linenum, 0 );
-            }
+          /* newline - move down the screen */
+          ++linenum;
+          move( linenum, 0 );
         }
+      }
       move( MESSAGE_LINE, COLS - utf8len( MODE_SPEEDTEST ) - 2 );
       ADDSTR_REV( MODE_SPEEDTEST );
 
       /* run the data */
       linenum = DP_TOP_LINE;
       move( linenum, 0 );
-      for ( widep = wideData; *widep == ASCII_SPACE && *widep != ASCII_NULL; widep++ )
+      for ( widep = wideData; *widep == ASCII_SPACE && *widep != ASCII_NULL; ++widep )
         wideaddch(*widep);
 
+      bool after_newline = FALSE;
       for ( chars_typed = 0, errors_pos = 0, memset(errors_buf, 0,
             numChars * sizeof(int)),  error_sync = 0;
-            *widep != ASCII_NULL; widep++, errors_pos++ )
+            *widep != ASCII_NULL; ++widep, ++errors_pos )
+      {
+        /* Jump over whitespaces at the beginning of the lines */
+        if (after_newline == TRUE && (*widep == ASCII_SPACE || *widep == ASCII_TAB))
         {
+          wideaddch(*widep);
+          continue;
+        } else
+          after_newline = FALSE;
 
-          do
-          {
-            rc = getch_fl( (*widep != ASCII_NL) ? *widep : RETURN_CHARACTER );
+        do
+        {
+          rc = getch_fl( (*widep != ASCII_NL) ? *widep : RETURN_CHARACTER );
+        }
+        while (rc == KEY_RESIZE); /* ignore terminal resize event */
+
+        /* start timer on first char entered */
+        if ( chars_typed == 0 )
+        {
+          gettimeofday(&tv, NULL);
+          start_time = tv.tv_sec + tv.tv_usec / 1000000.0;
+        }
+        ++chars_typed;
+        --error_sync;
+
+        /* check for delete keys if not at line start or
+           speed test start */
+        if ( rc == GTYPIST_KEY_BACKSPACE || rc == ASCII_BS || rc == ASCII_DEL )
+        {
+          /* just ignore deletes where it's impossible or hard */
+          if ( widep > wideData && *(widep-1) != ASCII_NL && *(widep-1) != ASCII_TAB ) {
+            /* back up one character */
+            ADDCH( ASCII_BS ); --widep;
+            /* Clear the error associated with the faulty character */
+            errors_buf[--errors_pos] = 0;
           }
-          while (rc == KEY_RESIZE); /* ignore terminal resize event */
+          /* Do not account the backspace as a char typed as it could artificially
+             increase the errors rate */
+          chars_typed--;
+          widep--;		/* defeat widep++ coming up */
+          errors_pos--;	/* defeat errors_pos++ coming up */
+          continue;
+        }
 
-          /* start timer on first char entered */
-          if ( chars_typed == 0 )
-            {
-              gettimeofday(&tv, NULL);
-              start_time = tv.tv_sec + tv.tv_usec / 1000000.0;
-            }
-          chars_typed++;
-          error_sync--;
+        /* ESC is "give up"; ESC at beginning of exercise is "skip lesson"
+           (this is handled outside the for loop) */
+        if ( rc == ASCII_ESC )
+          break;
 
-          /* check for delete keys if not at line start or
-             speed test start */
-          if ( rc == GTYPIST_KEY_BACKSPACE || rc == ASCII_BS || rc == ASCII_DEL )
+        /* check that the character was correct */
+        if ( rc == *widep || ( cl_args.word_processor_flag &&
+             rc == ASCII_SPACE && *widep == ASCII_NL ))
+        { /* character is correct */
+          if (*widep == ASCII_NL)
+          {
+              wideaddch(RETURN_CHARACTER);
+          } else {
+              wideaddch(rc);
+          }
+        } else {
+            /* character is incorrect */
+            /* try to sync with typist behind */
+            if ( error_sync >= 0 && widep > wideData && rc == *(widep-1) )
             {
-              /* just ignore deletes where it's impossible or hard */
-              if ( widep > wideData && *(widep-1) != ASCII_NL && *(widep-1) != ASCII_TAB ) {
-                /* back up one character */
-                ADDCH( ASCII_BS ); widep--;
-                /* Clear the error associated with the faulty character */
-                errors_buf[--errors_pos] = 0;
-              }
-              /* Do not account the backspace as a char typed as it could artificially lower the errors rate */
-              chars_typed--;
-              widep--;		/* defeat widep++ coming up */
-              errors_pos--;	/* defeat errors_pos++ coming up */
+              --widep;
+              --errors_pos;
               continue;
             }
 
-          /* ESC is "give up"; ESC at beginning of exercise is "skip lesson"
-             (this is handled outside the for loop) */
-          if ( rc == ASCII_ESC )
-            break;
+            wideaddch_rev(*widep == ASCII_NL ? RETURN_CHARACTER : *widep);
 
-          /* check that the character was correct */
-          if ( rc == *widep || ( cl_args.word_processor_flag &&
-               rc == ASCII_SPACE && *widep == ASCII_NL ))
-          { /* character is correct */
-            if (*widep == ASCII_NL)
-            {
-                wideaddch(RETURN_CHARACTER);
+            if ( ! cl_args.silent_flag ) {
+              do_bell();
             }
-            else
+            errors_buf[errors_pos] = 1;
+            error_sync = 1;
+
+            /* try to sync with typist ahead */
+            if ( rc == *(widep+1) )
             {
-                wideaddch(rc);
+              ungetch( rc );
+              ++error_sync;
             }
-          }
-          else 
-            { /* character is incorrect */
-              /* try to sync with typist behind */
-              if ( error_sync >= 0 && widep > wideData && rc == *(widep-1) )
-                {
-                  widep--;
-                  errors_pos--;
-                  continue;
-                }
+        }
 
-              wideaddch_rev(*widep == ASCII_NL ? RETURN_CHARACTER : *widep);
+        /* move screen location if newline */
+        if ( *widep == ASCII_NL )
+        {
+          after_newline = TRUE;
+          ++linenum;
+          move( linenum, 0 );
+        }
 
-              if ( ! cl_args.silent_flag ) {
-                do_bell();
-              }
-              errors_buf[errors_pos] = 1;
-              error_sync = 1;
-
-              /* try to sync with typist ahead */
-              if ( rc == *(widep+1) )
-                {
-                  ungetch( rc );
-                  error_sync++;
-                }
-            }
-
-          /* move screen location if newline */
-          if ( *widep == ASCII_NL )
+        /* perform any other word processor like adjustments */
+        if ( cl_args.word_processor_flag )
+        {
+          if ( rc == ASCII_SPACE )
+          {
+            while ( *(widep+1) == ASCII_SPACE
+                    && *(widep+1) != ASCII_NULL )
             {
-              linenum++;
-              move( linenum, 0 );
+              ++widep;
+              ++errors_pos;
+              wideaddch(*widep);
             }
-
-          /* perform any other word processor like adjustments */
-          if ( cl_args.word_processor_flag )
+          } else if ( rc == ASCII_NL )
             {
-              if ( rc == ASCII_SPACE )
+              while ( ( *(widep+1) == ASCII_SPACE
+                        || *(widep+1) == ASCII_NL )
+                        && *(widep+1) != ASCII_NULL )
+              {
+                widep++;
+                errors_pos++;
+                wideaddch(*widep);
+                if ( *widep == ASCII_NL )
                 {
-                  while ( *(widep+1) == ASCII_SPACE
-                          && *(widep+1) != ASCII_NULL )
-                    {
-                      widep++; 
-                      errors_pos++;
-                      wideaddch(*widep);
-                    }
-                }
-              else if ( rc == ASCII_NL )
-                {
-                  while ( ( *(widep+1) == ASCII_SPACE
-                            || *(widep+1) == ASCII_NL )
-                          && *(widep+1) != ASCII_NULL )
-                    {
-                      widep++;
-                      errors_pos++;
-                      wideaddch(*widep);
-                      if ( *widep == ASCII_NL )
-                        {
-                          linenum++;
-                          move( linenum, 0 );
-                        }
-                    }
-                }
-              else if ( isalpha(*widep) && *(widep+1) == ASCII_DASH
-                        && *(widep+2) == ASCII_NL )
-                {
-                  widep++; 
-                  errors_pos++;
-                  wideaddch(*widep);
-                  widep++;
-                  errors_pos++;
-                  wideaddch(*widep);
                   linenum++;
                   move( linenum, 0 );
                 }
-            }
+              }
+            } else if ( isalpha(*widep) && *(widep+1) == ASCII_DASH
+                        && *(widep+2) == ASCII_NL )
+              {
+                widep++;
+                errors_pos++;
+                wideaddch(*widep);
+                widep++;
+                errors_pos++;
+                wideaddch(*widep);
+                linenum++;
+                move( linenum, 0 );
+              }
         }
+      }
 
 
       /* ESC not at the beginning of the lesson: "give up" */
@@ -1022,61 +1025,62 @@ void do_speedtest( FILE *script, char *line )
 
       /* skip timings and don't check error-pct if exit was through ESC */
       if ( rc != ASCII_ESC )
+      {
+        /* Count all the errors made during the speed_test */
+        errors = 0;
+        for (int err_idx = 0; err_idx < numChars; err_idx++)
+            errors += errors_buf[err_idx];
+
+        /* display timings */
+        gettimeofday(&tv, NULL);
+        end_time = tv.tv_sec + tv.tv_usec / 1000000.0;
+        display_speed( chars_typed, end_time - start_time,
+                       errors );
+
+        /* check whether the error-percentage is too high (unless in s:) */
+        if (drill_type != C_SPEEDTEST_PRACTICE_ONLY &&
+            is_error_too_high(chars_typed, errors))
         {
-          /* Count all the errors made during the speed_test */
-          errors = 0;
-          for ( err_idx = 0; err_idx < numChars; err_idx++)
-              errors += errors_buf[err_idx];
+          sprintf(message, ERROR_TOO_HIGH_MSG, global_error_max);
+          wait_user_input(script, message, MODE_SPEEDTEST);
 
-          /* display timings */
-          gettimeofday(&tv, NULL);
-          end_time = tv.tv_sec + tv.tv_usec / 1000000.0;
-          display_speed( chars_typed, end_time - start_time,
-                         errors );
+          /* check for F-command */
+          if (global_on_failure_label != NULL)
+          {
+            /* move to the label position in the file */
+            if (fseek(script, global_on_failure_label->offset, SEEK_SET )
+                == -1)
+              fatal_error(_("internal error: fseek"), NULL);
+            global_line_counter = global_on_failure_label->line_count;
+            /* tell the user about the misery :) */
+            sprintf(message,SKIPBACK_VIA_F_MSG,
+                    global_on_failure_label->label);
+            /* reset value unless persistent */
+            if (!global_on_failure_label_persistent)
+                global_on_failure_label = NULL;
+            wait_user_input(script, message, MODE_SPEEDTEST);
+            seek_done = TRUE;
+            break;
+          }
 
-          /* check whether the error-percentage is too high (unless in s:) */
-          if (drill_type != C_SPEEDTEST_PRACTICE_ONLY &&
-              is_error_too_high(chars_typed, errors))
-            {
-              sprintf( message, ERROR_TOO_HIGH_MSG, global_error_max );
-              wait_user (script, message, MODE_SPEEDTEST);
-
-              /* check for F-command */
-              if (global_on_failure_label != NULL)
-                {
-                  /* move to the label position in the file */
-                  if (fseek(script, global_on_failure_label->offset, SEEK_SET )
-                      == -1)
-                    fatal_error( _("internal error: fseek"), NULL );
-                  global_line_counter = global_on_failure_label->line_count;
-                  /* tell the user about the misery :) */
-                  sprintf(message,SKIPBACK_VIA_F_MSG,
-                          global_on_failure_label->label);
-                  /* reset value unless persistent */
-                  if (!global_on_failure_label_persistent)
-                      global_on_failure_label = NULL;
-                  wait_user (script, message, MODE_SPEEDTEST);
-                  seek_done = TRUE;
-                  break;
-                }
-
-              continue;
-            }
+          continue;
         }
+      }
 
       /* ask the user whether he/she wants to repeat or exit */
       if ( rc == ASCII_ESC && cl_args.no_skip_flag ) /* honor --no-skip */
         rc = do_query_repeat (script, FALSE);
       else
         rc = do_query_repeat (script, TRUE);
-      if (rc == 'E') {
+      if (rc == 'E')
+      {
         seek_done = TRUE;
         break;
       }
       if (rc == 'N')
         break;
 
-    }
+  }
 
   /* free the malloced memory */
   free( data );
@@ -1164,31 +1168,31 @@ char do_query_repeat ( FILE *script, bool allow_next )
       resp = getch_fl( ASCII_NULL );
 
       if (towideupper (resp) == 'R' ||
-	  towideupper (resp) == RNE [0]) {
-	resp = 'R';
-	break;
+          towideupper (resp) == RNE[0]) {
+        resp = 'R';
+        break;
       }
       if (allow_next && (towideupper (resp) == 'N' ||
-			 towideupper (resp) == RNE [2])) {
-	resp = 'N';
-	break;
+          towideupper (resp) == RNE [2])) {
+        resp = 'N';
+        break;
       }
-      if (towideupper (resp) == 'E' || towideupper (resp) == RNE [4]) {
-	if (do_query_simple (CONFIRM_EXIT_LESSON_MSG))
-	  {
-	    seek_label (script, fkey_bindings [11], NULL);
-	    resp = 'E';
-	    break;
-	  }
-	/* redisplay the prompt */
-	move( MESSAGE_LINE, 0 ); clrtoeol();
-	move( MESSAGE_LINE, COLS - utf8len( MODE_QUERY ) - 2 );
-	ADDSTR_REV( MODE_QUERY );
-	move( MESSAGE_LINE, 0 );
-	if (allow_next)
-	  ADDSTR_REV( REPEAT_NEXT_EXIT_MSG );
-	else
-	  ADDSTR_REV( REPEAT_EXIT_MSG );
+      if (towideupper (resp) == 'E' || towideupper (resp) == RNE[4]) {
+        if (do_query_simple (CONFIRM_EXIT_LESSON_MSG))
+          {
+            seek_label (script, fkey_bindings [11], NULL);
+            resp = 'E';
+            break;
+          }
+        /* redisplay the prompt */
+        move( MESSAGE_LINE, 0 ); clrtoeol();
+        move( MESSAGE_LINE, COLS - utf8len( MODE_QUERY ) - 2 );
+        ADDSTR_REV( MODE_QUERY );
+        move( MESSAGE_LINE, 0 );
+        if (allow_next)
+          ADDSTR_REV( REPEAT_NEXT_EXIT_MSG );
+        else
+          ADDSTR_REV( REPEAT_EXIT_MSG );
       }
     }
 
@@ -1225,14 +1229,14 @@ bool do_query_simple ( char *text )
       resp = getch_fl( ASCII_NULL );
 
       if (towideupper (resp) == 'Y' || towideupper (resp) == YN[0])
-	resp = 0;
+        resp = 0;
       else if (towideupper (resp) == 'N' || towideupper (resp) == YN[2])
-	resp = -1;
+        resp = -1;
     /* Some PDCURSES implementations return -1 when no key is pressed
        for a second or so.  So, unless resp is explicitly set to Y/N,
        don't exit! */
       else
-	resp = 2;
+        resp = 2;
     }  while (resp != 0 && resp != -1);
 
   /* clear out the message line */
@@ -1266,51 +1270,51 @@ bool do_query( FILE *script, char *line )
       resp = getch_fl( ASCII_NULL );
 
       /* translate pseudo Fkeys into real ones if applicable
-	 The pseudo keys are defined in array pfkeys and are also:
-	 F1 - 1, F2 - 2, F3 - 3,.... F10 - 0, F11 - A, F12 - S */
+         The pseudo keys are defined in array pfkeys and are also:
+         F1 - 1, F2 - 2, F3 - 3,.... F10 - 0, F11 - A, F12 - S */
       for ( fkey = 1; fkey <= NFKEYS; fkey++ )
-	{
-	  if ( resp == pfkeys[ fkey - 1 ] || (fkey<11 && resp == (fkey+'0'))
-	       || (fkey==10 && (resp =='0'))
-	       || (fkey==11 && (resp =='a' || resp=='A'))
-	       || (fkey==12 && (resp =='s' || resp=='S')))
-	    {
-	      resp = KEY_F( fkey );
-	      break;
-	    }
-	}
+        {
+          if ( resp == pfkeys[ fkey - 1 ] || (fkey<11 && resp == (fkey+'0'))
+               || (fkey==10 && (resp =='0'))
+               || (fkey==11 && (resp =='a' || resp=='A'))
+               || (fkey==12 && (resp =='s' || resp=='S')))
+            {
+              resp = KEY_F( fkey );
+              break;
+            }
+        }
 
       /* search the key bindings for a matching key */
       for ( fkey = 1; fkey <= NFKEYS; fkey++ )
-	{
-	  if ( resp == KEY_F( fkey )
-	       && fkey_bindings[ fkey - 1 ] != NULL )
-	    {
-	      seek_label( script, fkey_bindings[ fkey - 1 ],
-			  NULL );
-	      break;
-	    }
-	}
+        {
+          if ( resp == KEY_F( fkey )
+               && fkey_bindings[ fkey - 1 ] != NULL )
+            {
+              seek_label( script, fkey_bindings[ fkey - 1 ],
+                  NULL );
+              break;
+            }
+        }
       if ( fkey <= NFKEYS ) {
-	ret_code = FALSE;
-	break;
+        ret_code = FALSE;
+        break;
       }
 
       /* no FKEY binding - check for Y or N */
-      if ( towideupper( resp ) == QUERY_Y ||
-	   towideupper( resp ) == YN[0] )
-	{
-	  ret_code = TRUE;
-	  global_resp_flag = TRUE;
-	  break;
-	}
+      if (towideupper( resp ) == QUERY_Y ||
+            towideupper( resp ) == YN[0] )
+        {
+          ret_code = TRUE;
+          global_resp_flag = TRUE;
+          break;
+        }
       if ( towideupper( resp ) == QUERY_N ||
-	   towideupper( resp ) == YN[2] )
-	{
-	  ret_code = TRUE;
-	  global_resp_flag = FALSE;
-	  break;
-	}
+           towideupper( resp ) == YN[2] )
+        {
+          ret_code = TRUE;
+          global_resp_flag = FALSE;
+          break;
+        }
     }
 
   /* clear out the message line */
@@ -1361,23 +1365,23 @@ void do_error_max_set( FILE *script, char *line )
     /* check for incorrect (not so readable) syntax */
     data = data + strlen( data ) - 1;
     if (*data != '%') {
-      /* find out what's wrong */
-      if (star && isspace( *data )) {
-	/* find out whether `line' contains '%' */
-	while (data != SCR_DATA( line ) && isspace( *data ))
-	  {
-	    *data = '\0';
-	    --data;
-	  }
-	if (*data == '%')
-	  /* xgettext: no-c-format */
-	  fatal_error( _("'*' must immediately follow '%'"), copy_of_line );
-	else
-	  /* xgettext: no-c-format */
-	  fatal_error( _("missing '%'"), copy_of_line );
-      } else
-	/* xgettext: no-c-format */
-	fatal_error( _("missing '%'"), copy_of_line );
+        /* find out what's wrong */
+        if (star && isspace( *data )) {
+        /* find out whether `line' contains '%' */
+        while (data != SCR_DATA( line ) && isspace( *data ))
+          {
+            *data = '\0';
+            --data;
+          }
+        if (*data == '%')
+          /* xgettext: no-c-format */
+          fatal_error( _("'*' must immediately follow '%'"), copy_of_line );
+        else
+          /* xgettext: no-c-format */
+          fatal_error( _("missing '%'"), copy_of_line );
+          } else
+        /* xgettext: no-c-format */
+        fatal_error( _("missing '%'"), copy_of_line );
     }
     if (isspace( *(data - 1) ))
       /* xgettext: no-c-format */
@@ -1401,9 +1405,9 @@ void do_error_max_set( FILE *script, char *line )
     */
     if (cl_args.max_error_given) {
       if (temp_value < cl_args.max_error_arg)
-	global_error_max = temp_value;
+        global_error_max = temp_value;
       else
-	global_error_max = cl_args.max_error_arg;
+        global_error_max = cl_args.max_error_arg;
     } else
       global_error_max = temp_value;
   }
@@ -1434,10 +1438,10 @@ void do_on_failure_label_set( FILE *script, char *line )
   /* remove trailing whitespace (and '*') */
   line_iterator = line + strlen( line ) - 1;
   while (line_iterator != line && !star &&
-	 (isspace( *line_iterator ) || *line_iterator == '*'))
+         (isspace( *line_iterator ) || *line_iterator == '*'))
     {
       if (*line_iterator == '*')
-	star = TRUE;
+        star = TRUE;
       *line_iterator = '\0';
       --line_iterator;
     }
@@ -1452,18 +1456,18 @@ void do_on_failure_label_set( FILE *script, char *line )
     i = hash_label( SCR_DATA(line) );
 
     /* search the linked list for the label */
-    for ( global_on_failure_label = global_label_list[i];
-    global_on_failure_label != NULL;
-    global_on_failure_label = global_on_failure_label->next )
-    
-    /* see if this is our label */
-    if ( strcmp( global_on_failure_label->label, SCR_DATA(line) ) == 0 )
-      break;
+    for (global_on_failure_label = global_label_list[i];
+         global_on_failure_label != NULL;
+         global_on_failure_label = global_on_failure_label->next)
+
+        /* see if this is our label */
+        if (strcmp(global_on_failure_label->label, SCR_DATA(line)) == 0)
+          break;
 
     /* see if the label was not found in the file */
     if ( global_on_failure_label == NULL )
     {
-      sprintf( message, _("label '%s' not found"), SCR_DATA(line) );
+      sprintf(message, _("label '%s' not found"), SCR_DATA(line));
       fatal_error( message, copy_of_line );
     }
   }
@@ -1479,7 +1483,7 @@ static
 void parse_file( FILE *script, char *label )
 {
   char	line[MAX_SCR_LINE];		/* line buffer */
-  char	command;			/* current command */
+  char	command;          /* current command */
 
   /* if label given then start running there */
   if ( label != NULL )
@@ -1525,10 +1529,12 @@ void parse_file( FILE *script, char *label )
          break;
       case C_ERROR_MAX_SET: do_error_max_set( script, line ); break;
       case C_ON_FAILURE_SET: do_on_failure_label_set( script, line ); break;
-      case C_MENU: do_menu (script, line); break;
+      case C_MENU:
+         do_menu (script, line);
+         get_script_line (script, line);
+         break;
       default:
-        fatal_error( _("unknown command"), line );
-        break;
+        fatal_error( _("unknown command"), line ); break;
     }
   }
 }
@@ -1666,7 +1672,7 @@ int main( int argc, char **argv )
      => this makes programming easier because now _all_ strings
      (from gettext and from script file) are encoded as UTF8!
    */
-  bind_textdomain_codeset(PACKAGE, "utf-8"); 
+  bind_textdomain_codeset(PACKAGE, "utf-8");
   textdomain (PACKAGE);
 #endif
 
@@ -1879,7 +1885,7 @@ void do_bell() {
 }
 
 bool get_best_speed( const char *script_filename,
-		     const char *excersise_label, double *adjusted_cpm )
+                     const char *excersise_label, double *adjusted_cpm )
 {
   FILE *blfile;       				/* bestlog file */
   char *search;			        	/* string to match in bestlog */
@@ -1945,8 +1951,8 @@ bool get_best_speed( const char *script_filename,
   return found;
 }
 
-void put_best_speed( const char *script_filename,
-		     const char *excersise_label, double adjusted_cpm )
+void put_best_speed(const char *script_filename,
+                    const char *exercise_label, double adjusted_cpm )
 {
   FILE *blfile;		            		/* bestlog file */
   char *fixed_script_filename;		/* fixed-up script filename */
@@ -1980,10 +1986,10 @@ void put_best_speed( const char *script_filename,
   struct tm *now = localtime( &nowts );
 
   /* append new score */
-  fprintf( blfile, "%04d-%02d-%02d %02d:%02d:%02d %s:%s %g\n",
-	   now->tm_year + 1900, now->tm_mon + 1, now->tm_mday, now->tm_hour,
-	   now->tm_min, now->tm_sec, fixed_script_filename, excersise_label,
-	   adjusted_cpm );
+  fprintf(blfile, "%04d-%02d-%02d %02d:%02d:%02d %s:%s %g\n",
+          now->tm_year + 1900, now->tm_mon + 1, now->tm_mday, now->tm_hour,
+          now->tm_min, now->tm_sec, fixed_script_filename, exercise_label,
+          adjusted_cpm);
 
   /* cleanup */
   free( fixed_script_filename );

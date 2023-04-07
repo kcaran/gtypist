@@ -143,7 +143,7 @@ Version 2.4.1 - November/2001
     gtypist-mode-goto-label is now bound to C-c M-g)
 
 Version 2.4 - September/2001
-  - Added Finnish Native Language Support 
+  - Added Finnish Native Language Support
   - Changes to the types of exercises: d,D for drills and s,S
     for speed-tests
   - Added commands E: (sets error-max) and F: (sets "on failure" label)
@@ -186,10 +186,10 @@ Version 2.3.2 - Nov/2000
     (thanks to Caolan McNamara <caolan@csn.ul.ie>)
 
 Version 2.3.1 - Sep/2000
-  - Fixed bug with --datadir reported by	stephan.hegel@gmx.de 
+  - Fixed bug with --datadir reported by	stephan.hegel@gmx.de
     Installation of data by default now in prefix/share/typist
   - Now the keys F1,F2,...,F12 can be "emulated" with
-    1,2,3,4,5,6,7,8,9,0,A,S and also C-q, C-w, C-r, C-t, C-z, C-u, 
+    1,2,3,4,5,6,7,8,9,0,A,S and also C-q, C-w, C-r, C-t, C-z, C-u,
     C-i, C-o, C-p, C-a, C-s
   - Fixed bug in word processor mode reported by Ben Armstrong,
     <synrg@sanctuary.nslug.ns.ca> now  by  default  this mode  is
@@ -211,7 +211,7 @@ Version 2.2b:
     behaviour is enabled.
   - Moved the binary to typist_bin, and created a typist shell script
     wrapper to try to cope with TYPIST_PATH not set, and the variations
-    in the location of the terminfo database between RedHat 5.2 and
+    in the location of the terminfo database between Red Hat 5.2 and
     other platforms.
   - Again, why not look at 'Jtypist'.
 
@@ -222,7 +222,7 @@ Version 2.2a:
     at a line's end are skipped.
   - Fixed drills so that delete does not actually insert an error,
     but is now just ignored.
-  - Corrected backspace key detection on RedHat Linux 5.2.
+  - Corrected backspace key detection on Red Hat GNU/Linux 5.2.
 
 Version 2.2:
   - Removed the C++ version of the program.  Apart from my elderly
@@ -238,9 +238,9 @@ Version 2.2:
   - Updated typv1tov2 and typcombine to use these new features,
     and output improved menus that use the function keys for direct
     access to lessons, and repeat-this-exercise queries.
-  - The typist binary is now statically linked for Linux, to try
-    to enhance its portability as a binary.  The build system is
-    now RedHat 5.2, and the program is now an incredible 700kB
+  - The typist binary is now statically linked for GNU/Linux, to
+    try to enhance its portability as a binary.  The build system is
+    now Red Hat 5.2, and the program is now an incredible 700kB
     as a static binary.
   - All of these enhancements got finished up after I had completed
     the Java version, 'Jtypist'.  If you can, I'd heartily recommend
@@ -252,3 +252,26 @@ Version 2.2:
 Version 2.1a:
   - Whole package GPLified.  Otherwise, no changes.  None.
     Nothing at all.  Really.
+
+  Copyright (C) 2001, 2002, 2003 Simon Baldwin (simonb@sco.com)
+
+  Copyright (C) 2003, 2004, 2008, 2009, 2011, 2012, 2013, 2014, 2016,
+                2017, 2018, 2019, 2020
+                Felix Natter, Michael Opdenacker, Paul Goins,
+                Tim Marston, Mihai Gătejescu
+  Copyright (C) 2021, 2022, 2023 Felix Natter, Mihai Gătejescu
+
+  This file is a part of GNU Typist
+
+  GNU Typist is free software: you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation, either version 3 of the License, or
+  (at your option) any later version.
+
+  GNU Typist is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+
+  You should have received a copy of the GNU General Public License
+  along with GNU Typist.  If not, see <http://www.gnu.org/licenses/>.

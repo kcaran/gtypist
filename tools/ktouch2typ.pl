@@ -1,21 +1,29 @@
 #!/usr/bin/perl -w
-
 # converts from ktouch's .ktouch.xml to gtypist's .typ-file
 # send comments and suggestions to bug-gtypist@gnu.org
 
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation, either version 3
-# of the License, or (at your option) any later version.
-# 
-# This program is distributed in the hope that it will be useful,
+# Copyright (C) 2001, 2002, 2003 Simon Baldwin (simonb@sco.com)
+# Copyright (C) 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010,
+#               2011, 2012, 2013, 2014, 2016, 2017, 2018, 2019,
+#               2020 Felix Natter
+# Copyright (C) 2021, 2022, 2023 Felix Natter, Mihai Gătejescu
+
+# Author: Felix Natter <fnatter@gmx.net>
+
+# This file is part of GNU Typist
+
+# GNU Typist is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+
+# GNU Typist is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU General Public License for more details.
-# 
+
 # You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+# along with GNU Typist.  If not, see <http://www.gnu.org/licenses/>.
 
 package KTouchParser;
 
@@ -56,7 +64,7 @@ if ($#ARGV != 0)
 }
 
 my $ktouchfilename = shift(@ARGV);
-if ($ktouchfilename !~ /^.*\.ktouch\.xml$/ || ! (-f $ktouchfilename)) { 
+if ($ktouchfilename !~ /^.*\.ktouch\.xml$/ || ! (-f $ktouchfilename)) {
     die "Invalid ktouch lesson filename: $ktouchfilename.\n";
 }
 
@@ -80,7 +88,7 @@ my $handler = KTouchParser->new();
 
 my $parser = XML::Parser::PerlSAX->new(Handler => $handler);
 
-$parser->parse(Source => { 
+$parser->parse(Source => {
     'SystemId' => $ktouchfilename,
     'Encoding' => 'utf-8'
                });
@@ -129,7 +137,7 @@ sub writeLesson($$)
 	} else {
 	    print TYPFILE " :$line\n";
 	}
-        
+
 	++$lineCounter;
 	if ($lineCounter == $lines_per_drill) {
 	    $lineCounter = 0;
@@ -154,7 +162,7 @@ sub start_element {
     if ($current_element eq 'Levels')
     {
         # start of lessons, write out header
-        print TYPFILE "# created by ktouch2typ.pl from " . 
+        print TYPFILE "# created by ktouch2typ.pl from " .
             getAbsoluteFilename($ktouchfilename) . "\n# on " . `date`;
         my $FileTitle = $converter->convert($tagContent{'Title'});
         my $FileComment = $converter->convert($tagContent{'Comment'});
@@ -235,12 +243,12 @@ sub characters {
 
     return '' unless $text;
 
-    # do not collect characters that are outside the element: 
+    # do not collect characters that are outside the element:
     # <Level>
     #   <LevelComment>2 und Anführungszeichen</LevelComment>XXX
     # </Level>
     # do not collect XXX
-    return if $inside_element == 0; 
+    return if $inside_element == 0;
 
     #printf "text='$text'";
 

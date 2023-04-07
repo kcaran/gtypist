@@ -39,7 +39,7 @@ BEGIN 	{
   scount = 0;
   type = "I";
 # use "-" here since that's what you get when you run
-# awk against stdin, at least on Linux
+# awk against stdin, at least on GNU/Linux
   cur_filename = "-";
   cur_series = "";
 
@@ -141,6 +141,7 @@ END	{
   printf(" :\n");
   printf(" : cs.typ            -  Czech lessons\n");
   printf(" : esp.typ           -  Spanish lessons\n");
+  printf(" : ro_special.typ    -  Romanian diacritic characters lessons\n");
   printf(" : ru.typ            -  Russian lessons\n");
   printf(" : p.typ             -  Special characters for programming\n");
   printf(" : ttde.typ          -  German lessons from tipptrainer 0.6.0\n");
@@ -149,7 +150,7 @@ END	{
   printf(" : ktde.typ          -  German lessons I from KTouch 1.6\n");
   printf(" : ktde2.typ         -  German lessons II from KTouch 1.6\n");
   printf(" : ktde_neo.typ      -  German lessons with NEO layout from KTouch 1.6\n");
-  printf(" :  (see http://pebbles.schattenlauf.de/layout.php?language=de\n");
+  printf(" :  (see http://pebbles.schattenlauf.de/layout.php?language=de)\n");
   printf(" : ktde_number.typ   -  German number keypad lessons from KTouch 1.6\n");
   printf(" : ktdk.typ          -  Danish lessons I from KTouch 1.6\n");
   printf(" : ktdk2.typ         -  Danish lessons II from KTouch 1.6\n");
@@ -205,7 +206,7 @@ END	{
   printf(" :manual can also be found here:\n");
   printf(" :    http://www.gnu.org/software/gtypist/doc/\n");
   printf(" :\n");
-  printf(" :If you have comments, questons, suggestions or bug-reports,\n");
+  printf(" :If you have comments, questions, suggestions or bug-reports,\n");
   printf(" :please write to bug-gtypist@gnu.org.\n");
   printf("G:__SERIESMENU\n");
 

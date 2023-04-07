@@ -1,20 +1,22 @@
 /*
  * GNU Typist  - interactive typing tutor program for UNIX systems
  *
- * Copyright (C) 2012  GNU Typist Development Team <bug-gtypist@gnu.org>
+ * Copyright (C) 2012, 2013, 2014, 2016, 2017, 2018, 2019, 2020
+ *               Felix Natter, Tim Marston, clutton, Mihai Gătejescu
+ * Copyright (C) 2021, 2022, 2023 Felix Natter, Mihai Gătejescu
  *
- * This program is free software: you can redistribute it and/or modify
+ * GNU Typist is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * This program is distributed in the hope that it will be useful,
+ * GNU Typist is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ * along with GNU Typist.  If not, see <http://www.gnu.org/licenses/>.
  */
 
 #include "config.h"
@@ -85,11 +87,11 @@ void draw_scrollbar(int x2, int y1, int y2,
   int scrollBarOffset =
       (int)(firstLine/(float)maxFirstLine * maxOffset + 0.5);
   int y, scrollBarPosition;
-  
+
   attron (COLOR_PAIR (C_BANNER));
   for (y = y1 + 1, scrollBarPosition = 1; y < y2; y++, scrollBarPosition++)
   {
-    mvaddch(y, x2, 
+    mvaddch(y, x2,
             (scrollBarPosition >= scrollBarOffset &&
              scrollBarPosition - scrollBarOffset <= scrollBarHeight)
             ? /*ACS_CKBOARD*/ ASCII_SPACE|A_REVERSE : ASCII_SPACE);
@@ -163,7 +165,7 @@ int do_beginner_infoview()
       "Happy Typing!"
   );
 
-  char* msg; 
+  char* msg;
   char** msgLines;
   char* token;
   int numUsableLines, numMsgLines, i, j;
@@ -258,7 +260,7 @@ int do_beginner_infoview()
         break;
       }
     }
-      
+
     for (i = firstLine; i <= lastLine; i++)
     {
       move(yOffset + 1 + (i-firstLine), xOffset + 1);
@@ -269,7 +271,11 @@ int do_beginner_infoview()
                    firstLine, lastLine, numMsgLines);
     mvwideaddstr(LINES - 1, 0,
                  _("Press SPACE, ENTER or ESCAPE to start gtypist, or 'D' to disable this dialog"));
-    get_widech(&ch);
+
+    if (ERR == get_widech(&ch))
+    {
+        fatal_error("internal error: get_widech", NULL);
+    }
   }
 
   /* free resources */

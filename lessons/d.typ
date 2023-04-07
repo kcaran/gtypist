@@ -1,18 +1,23 @@
 # GNU Typist - improved typing tutor program for UNIX systems
-# Copyright (C) 1998  Simon Baldwin (simonb@sco.com)
 #
-# This program is free software: you can redistribute it and/or modify
+# Copyright (C) 1998, 1999, 2000, 2001, 2002, 2003  Simon Baldwin
+# Copyright (C) 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011,
+#               2012, 2013, 2014, 2016, 2017, 2018, 2019, 2020
+#               Felix Natter, Michael Opdenacker, Paul Goins, Tim Marston
+# Copyright (C) 2021, 2022, 2023 Felix Natter, Mihai Gătejescu
+#
+# GNU Typist is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
 # the Free Software Foundation, either version 3 of the License, or
 # (at your option) any later version.
 #
-# This program is distributed in the hope that it will be useful,
+# GNU Typist is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU General Public License for more details.
 #
 # You should have received a copy of the GNU General Public License
-# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+# along with GNU Typist.  If not, see <http://www.gnu.org/licenses/>.
 #
 
 #------------------------------------------------------------------------------
@@ -755,55 +760,55 @@ G:_D_E_D14
 # Lesson series D jump tables
 #------------------------------------------------------------------------------
 *:_D_E_D1
-Q: Do you want to continue to lesson D2 [Y/N] ? 
+Q: Do you want to continue to lesson D2 [Y/N] ?
 N:_D_MENU
 G:_D_S_D2
 *:_D_E_D2
-Q: Do you want to continue to lesson D3 [Y/N] ? 
+Q: Do you want to continue to lesson D3 [Y/N] ?
 N:_D_MENU
 G:_D_S_D3
 *:_D_E_D3
-Q: Do you want to continue to lesson D4 [Y/N] ? 
+Q: Do you want to continue to lesson D4 [Y/N] ?
 N:_D_MENU
 G:_D_S_D4
 *:_D_E_D4
-Q: Do you want to continue to lesson D5 [Y/N] ? 
+Q: Do you want to continue to lesson D5 [Y/N] ?
 N:_D_MENU
 G:_D_S_D5
 *:_D_E_D5
-Q: Do you want to continue to lesson D6 [Y/N] ? 
+Q: Do you want to continue to lesson D6 [Y/N] ?
 N:_D_MENU
 G:_D_S_D6
 *:_D_E_D6
-Q: Do you want to continue to lesson D7 [Y/N] ? 
+Q: Do you want to continue to lesson D7 [Y/N] ?
 N:_D_MENU
 G:_D_S_D7
 *:_D_E_D7
-Q: Do you want to continue to lesson D8 [Y/N] ? 
+Q: Do you want to continue to lesson D8 [Y/N] ?
 N:_D_MENU
 G:_D_S_D8
 *:_D_E_D8
-Q: Do you want to continue to lesson D9 [Y/N] ? 
+Q: Do you want to continue to lesson D9 [Y/N] ?
 N:_D_MENU
 G:_D_S_D9
 *:_D_E_D9
-Q: Do you want to continue to lesson D10 [Y/N] ? 
+Q: Do you want to continue to lesson D10 [Y/N] ?
 N:_D_MENU
 G:_D_S_D10
 *:_D_E_D10
-Q: Do you want to continue to lesson D11 [Y/N] ? 
+Q: Do you want to continue to lesson D11 [Y/N] ?
 N:_D_MENU
 G:_D_S_D11
 *:_D_E_D11
-Q: Do you want to continue to lesson D12 [Y/N] ? 
+Q: Do you want to continue to lesson D12 [Y/N] ?
 N:_D_MENU
 G:_D_S_D12
 *:_D_E_D12
-Q: Do you want to continue to lesson D13 [Y/N] ? 
+Q: Do you want to continue to lesson D13 [Y/N] ?
 N:_D_MENU
 G:_D_S_D13
 *:_D_E_D13
-Q: Do you want to continue to lesson D14 [Y/N] ? 
+Q: Do you want to continue to lesson D14 [Y/N] ?
 N:_D_MENU
 G:_D_S_D14
 *:_D_E_D14
