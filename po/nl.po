@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: bug-gtypist@gnu.org\n"
-"POT-Creation-Date: 2021-08-16 22:07+0300\n"
+"POT-Creation-Date: 2023-04-08 15:22-0400\n"
 "PO-Revision-Date: 2012-02-06 17:32+0000\n"
 "Last-Translator: Joost Cogels <joostc@raketnet.nl>\n"
 "Language-Team: Dutch (Nederlands) <nl@li.org>\n"
@@ -29,7 +29,7 @@ msgstr "ongeldige toetsbinding"
 msgid "invalid function key number"
 msgstr "ongeldig functietoets nummer"
 
-#: src/gtypist.c:426 src/gtypist.c:536 src/gtypist.c:844
+#: src/gtypist.c:426 src/gtypist.c:536 src/gtypist.c:846
 msgid "data exceeds screen length"
 msgstr "data overschreidt vensterlengte"
 
@@ -37,142 +37,142 @@ msgstr "data overschreidt vensterlengte"
 msgid "instructions are limited to two lines"
 msgstr "instructies zijn beperkt tot twee regels"
 
-#: src/gtypist.c:743 src/gtypist.c:1051 src/script.c:311
+#: src/gtypist.c:745 src/gtypist.c:1053 src/script.c:311
 msgid "internal error: fseek"
 msgstr "interne fout: fseek"
 
-#: src/gtypist.c:825 src/gtypist.c:1909 src/gtypist.c:1925 src/gtypist.c:1972
-#: src/gtypist.c:2009 src/gtypist.c:2029 src/script.c:145 src/script.c:169
+#: src/gtypist.c:827 src/gtypist.c:1911 src/gtypist.c:1927 src/gtypist.c:1974
+#: src/gtypist.c:2011 src/gtypist.c:2031 src/script.c:145 src/script.c:169
 #: src/script.c:256
 msgid "internal error: malloc"
 msgstr "interne fout: malloc"
 
-#: src/gtypist.c:1376
+#: src/gtypist.c:1378
 #, no-c-format
 msgid "'*' must immediately follow '%'"
 msgstr "'*' moet '%' onmiddellijk volgen"
 
-#: src/gtypist.c:1379 src/gtypist.c:1382
+#: src/gtypist.c:1381 src/gtypist.c:1384
 #, no-c-format
 msgid "missing '%'"
 msgstr "ontbrekende '%'"
 
-#: src/gtypist.c:1386
+#: src/gtypist.c:1388
 #, no-c-format
 msgid "'%' must immediately follow value"
 msgstr "'%' moet waarde onmiddellijk volgen"
 
-#: src/gtypist.c:1395
+#: src/gtypist.c:1397
 msgid "overflow in do_error_max_set"
 msgstr "overflow in do_error_max_set"
 
-#: src/gtypist.c:1415
+#: src/gtypist.c:1417
 msgid "Invalid value for \"E:\" (out of range)"
 msgstr "Ongeldige waarde voor \"E:\" (buiten bereik)"
 
-#: src/gtypist.c:1468 src/script.c:305
+#: src/gtypist.c:1470 src/script.c:305
 #, c-format
 msgid "label '%s' not found"
 msgstr "label '%s' niet gevonden"
 
-#: src/gtypist.c:1535
+#: src/gtypist.c:1537
 msgid "unknown command"
 msgstr "onbekend commando"
 
-#: src/gtypist.c:1569
+#: src/gtypist.c:1571
 #, c-format
 msgid "Try '%s --help' for more information.\n"
 msgstr "Probeer '%s --help' voor meer informatie.\n"
 
-#: src/gtypist.c:1576
+#: src/gtypist.c:1578
 #, fuzzy, c-format
 msgid "%s: invalid max-error value\n"
 msgstr "%s: ongeldige error-max waarde\n"
 
-#: src/gtypist.c:1583
+#: src/gtypist.c:1585
 #, c-format
 msgid "%s: invalid curs-flash value\n"
 msgstr "%s: ongeldige curs-flash waarde\n"
 
-#: src/gtypist.c:1593
+#: src/gtypist.c:1595
 #, c-format
 msgid "%s: invalid colours value\n"
 msgstr "%s: ongeldige kleuren waarde\n"
 
-#: src/gtypist.c:1606
+#: src/gtypist.c:1608
 #, fuzzy, c-format
 msgid "%s: invalid banner-colours value\n"
 msgstr "%s: ongeldige kleuren waarde\n"
 
-#: src/gtypist.c:1687
+#: src/gtypist.c:1689
 msgid " Tutorial "
 msgstr " Handleiding "
 
-#: src/gtypist.c:1689
+#: src/gtypist.c:1691
 msgid "  Query   "
 msgstr "  Vraag   "
 
-#: src/gtypist.c:1691
+#: src/gtypist.c:1693
 msgid "  Drill   "
 msgstr " Oefening "
 
-#: src/gtypist.c:1693
+#: src/gtypist.c:1695
 msgid "Speed test"
 msgstr "Snelheidstest"
 
-#: src/gtypist.c:1695
+#: src/gtypist.c:1697
 msgid " Press RETURN or SPACE to continue, ESC to return to the menu "
 msgstr ""
 
-#: src/gtypist.c:1698
+#: src/gtypist.c:1700
 #, c-format
 msgid " Your error-rate is too high. You have to achieve %.1f%%. "
 msgstr "Uw aantal fouten is te hoog. U dient %.1f%% te behalen."
 
-#: src/gtypist.c:1702
+#: src/gtypist.c:1704
 #, c-format
 msgid " You failed this test, so you need to go back to %s. "
 msgstr "Uw bent gezakt voor de test, dus moet u teruggaan naar %s."
 
-#: src/gtypist.c:1706
+#: src/gtypist.c:1708
 msgid " Press R to repeat, N for next exercise or E to exit "
 msgstr "Druk op R om te herhalen, N voor volgende oefening of E om te sluiten"
 
-#: src/gtypist.c:1710
+#: src/gtypist.c:1712
 msgid " Press R to repeat or E to exit "
 msgstr "Druk op R om te herhalen of E om te sluiten"
 
-#: src/gtypist.c:1713
+#: src/gtypist.c:1715
 msgid " Are you sure you want to exit this lesson? [Y/N] "
 msgstr "Weet u zeker dat u deze les wilt beeindigen? [J/N]"
 
-#: src/gtypist.c:1717
+#: src/gtypist.c:1719
 msgid " Sorry, gtypist is configured to forbid skipping exercises. "
 msgstr ""
 "Sorry, gtypist is geconfigureerd het overslaan van oefeningen te verbieden."
 
-#: src/gtypist.c:1722
+#: src/gtypist.c:1724
 msgid "Y/N"
 msgstr "J/N"
 
-#: src/gtypist.c:1732
+#: src/gtypist.c:1734
 msgid "R/N/E"
 msgstr "R/N/E"
 
-#: src/gtypist.c:1753
+#: src/gtypist.c:1755
 #, c-format
 msgid "%s: %s environment variable not set\n"
 msgstr ""
 
-#: src/gtypist.c:1800
+#: src/gtypist.c:1802
 msgid "can't find or open file"
 msgstr "kan bestand niet vinden of openen"
 
-#: src/gtypist.c:1854
+#: src/gtypist.c:1856
 msgid "Loading the script..."
 msgstr ""
 
-#: src/gtypist.c:1964
+#: src/gtypist.c:1966
 msgid "internal error: fopen"
 msgstr "interne fout: fopen"
 
@@ -241,8 +241,8 @@ msgid ""
 "Welcome to GNU Typist!\n"
 "\n"
 "This message is meant to get you started using gtypist. Please read the\n"
-"manual (at http://www.gnu.org/software/gtypist/doc/, or type \"info gtypist"
-"\")\n"
+"manual (at http://www.gnu.org/software/gtypist/doc/, or type \"info "
+"gtypist\")\n"
 "for more in-depth information!\n"
 "\n"
 "Use the arrow keys or PGUP/PGDN to scroll this window, SPACE/ENTER to start\n"

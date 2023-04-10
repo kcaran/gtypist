@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gtypist 2.10dev\n"
 "Report-Msgid-Bugs-To: bug-gtypist@gnu.org\n"
-"POT-Creation-Date: 2021-08-16 22:07+0300\n"
+"POT-Creation-Date: 2023-04-08 15:22-0400\n"
 "PO-Revision-Date: 2019-01-03 17:35+0000\n"
 "Last-Translator: Jakub Bogusz <qboosh@pld-linux.org>\n"
 "Language-Team: Polish <translation-team-pl@lists.sourceforge.net>\n"
@@ -28,7 +28,7 @@ msgstr "błędne przypisanie klawisza"
 msgid "invalid function key number"
 msgstr "błędny numer klawisza funkcyjnego"
 
-#: src/gtypist.c:426 src/gtypist.c:536 src/gtypist.c:844
+#: src/gtypist.c:426 src/gtypist.c:536 src/gtypist.c:846
 msgid "data exceeds screen length"
 msgstr "dane przekraczają długość ekranu"
 
@@ -36,142 +36,142 @@ msgstr "dane przekraczają długość ekranu"
 msgid "instructions are limited to two lines"
 msgstr "instrukcje są ograniczone do dwóch linii"
 
-#: src/gtypist.c:743 src/gtypist.c:1051 src/script.c:311
+#: src/gtypist.c:745 src/gtypist.c:1053 src/script.c:311
 msgid "internal error: fseek"
 msgstr "błąd wewnętrzny: fseek"
 
-#: src/gtypist.c:825 src/gtypist.c:1909 src/gtypist.c:1925 src/gtypist.c:1972
-#: src/gtypist.c:2009 src/gtypist.c:2029 src/script.c:145 src/script.c:169
+#: src/gtypist.c:827 src/gtypist.c:1911 src/gtypist.c:1927 src/gtypist.c:1974
+#: src/gtypist.c:2011 src/gtypist.c:2031 src/script.c:145 src/script.c:169
 #: src/script.c:256
 msgid "internal error: malloc"
 msgstr "błąd wewnętrzny: malloc"
 
-#: src/gtypist.c:1376
+#: src/gtypist.c:1378
 #, no-c-format
 msgid "'*' must immediately follow '%'"
 msgstr "'*' musi być bezpośrednio po '%'"
 
-#: src/gtypist.c:1379 src/gtypist.c:1382
+#: src/gtypist.c:1381 src/gtypist.c:1384
 #, no-c-format
 msgid "missing '%'"
 msgstr "brak '%'"
 
-#: src/gtypist.c:1386
+#: src/gtypist.c:1388
 #, no-c-format
 msgid "'%' must immediately follow value"
 msgstr "'%' musi być bezpośrednio po wartości"
 
-#: src/gtypist.c:1395
+#: src/gtypist.c:1397
 msgid "overflow in do_error_max_set"
 msgstr "przepełnienie w do_error_max_set"
 
-#: src/gtypist.c:1415
+#: src/gtypist.c:1417
 msgid "Invalid value for \"E:\" (out of range)"
 msgstr "Błędna wartość dla \"E:\" (spoza zakresu)"
 
-#: src/gtypist.c:1468 src/script.c:305
+#: src/gtypist.c:1470 src/script.c:305
 #, c-format
 msgid "label '%s' not found"
 msgstr "nie znaleziono etykiety '%s'"
 
-#: src/gtypist.c:1535
+#: src/gtypist.c:1537
 msgid "unknown command"
 msgstr "nieznane polecenie"
 
-#: src/gtypist.c:1569
+#: src/gtypist.c:1571
 #, c-format
 msgid "Try '%s --help' for more information.\n"
 msgstr "Polecenie '%s --help' poda więcej informacji.\n"
 
-#: src/gtypist.c:1576
+#: src/gtypist.c:1578
 #, c-format
 msgid "%s: invalid max-error value\n"
 msgstr "%s: błędna wartość max-error\n"
 
-#: src/gtypist.c:1583
+#: src/gtypist.c:1585
 #, c-format
 msgid "%s: invalid curs-flash value\n"
 msgstr "%s: błędna wartość curs-flash\n"
 
-#: src/gtypist.c:1593
+#: src/gtypist.c:1595
 #, c-format
 msgid "%s: invalid colours value\n"
 msgstr "%s: błędna wartość kolorów\n"
 
-#: src/gtypist.c:1606
+#: src/gtypist.c:1608
 #, c-format
 msgid "%s: invalid banner-colours value\n"
 msgstr "%s: błędna wartość banner-colours\n"
 
-#: src/gtypist.c:1687
+#: src/gtypist.c:1689
 msgid " Tutorial "
 msgstr " Nauka "
 
-#: src/gtypist.c:1689
+#: src/gtypist.c:1691
 msgid "  Query   "
 msgstr " Pytanie "
 
-#: src/gtypist.c:1691
+#: src/gtypist.c:1693
 msgid "  Drill   "
 msgstr " Ćwiczenie "
 
-#: src/gtypist.c:1693
+#: src/gtypist.c:1695
 msgid "Speed test"
 msgstr "Test szybkości"
 
-#: src/gtypist.c:1695
+#: src/gtypist.c:1697
 msgid " Press RETURN or SPACE to continue, ESC to return to the menu "
 msgstr " RETURN lub SPACE oznacza kontynuację, ESC powrót do menu "
 
-#: src/gtypist.c:1698
+#: src/gtypist.c:1700
 #, c-format
 msgid " Your error-rate is too high. You have to achieve %.1f%%. "
 msgstr " Współczynnik błędów jest zbyt duży. Trzeba osiągnąć %.1f%%. "
 
-#: src/gtypist.c:1702
+#: src/gtypist.c:1704
 #, c-format
 msgid " You failed this test, so you need to go back to %s. "
 msgstr " Test nie powiódł się, trzeba wrócić do %s. "
 
-#: src/gtypist.c:1706
+#: src/gtypist.c:1708
 msgid " Press R to repeat, N for next exercise or E to exit "
 msgstr " P - powtórzenie, N - następne ćwiczenie, K - koniec ćwiczeń "
 
-#: src/gtypist.c:1710
+#: src/gtypist.c:1712
 msgid " Press R to repeat or E to exit "
 msgstr " P - powtórzenie, K - koniec ćwiczeń "
 
-#: src/gtypist.c:1713
+#: src/gtypist.c:1715
 msgid " Are you sure you want to exit this lesson? [Y/N] "
 msgstr " Na pewno zakończyć tę lekcję? [T/N] "
 
-#: src/gtypist.c:1717
+#: src/gtypist.c:1719
 msgid " Sorry, gtypist is configured to forbid skipping exercises. "
 msgstr ""
 " gtypist jest skonfigurowany tak, by nie pozwalał na pomijanie ćwiczeń. "
 
-#: src/gtypist.c:1722
+#: src/gtypist.c:1724
 msgid "Y/N"
 msgstr "T/N"
 
-#: src/gtypist.c:1732
+#: src/gtypist.c:1734
 msgid "R/N/E"
 msgstr "P/N/K"
 
-#: src/gtypist.c:1753
+#: src/gtypist.c:1755
 #, c-format
 msgid "%s: %s environment variable not set\n"
 msgstr "%s: zmienna środowiskowa %s nie ustawiona\n"
 
-#: src/gtypist.c:1800
+#: src/gtypist.c:1802
 msgid "can't find or open file"
 msgstr "nie można znaleźć lub otworzyć pliku"
 
-#: src/gtypist.c:1854
+#: src/gtypist.c:1856
 msgid "Loading the script..."
 msgstr "Wczytywanie skryptu..."
 
-#: src/gtypist.c:1964
+#: src/gtypist.c:1966
 msgid "internal error: fopen"
 msgstr "błąd wewnętrzny: fopen"
 
@@ -244,8 +244,8 @@ msgid ""
 "Welcome to GNU Typist!\n"
 "\n"
 "This message is meant to get you started using gtypist. Please read the\n"
-"manual (at http://www.gnu.org/software/gtypist/doc/, or type \"info gtypist"
-"\")\n"
+"manual (at http://www.gnu.org/software/gtypist/doc/, or type \"info "
+"gtypist\")\n"
 "for more in-depth information!\n"
 "\n"
 "Use the arrow keys or PGUP/PGDN to scroll this window, SPACE/ENTER to start\n"
@@ -299,8 +299,8 @@ msgstr ""
 "ENTER uruchomić gtypista, a \"D\" - uruchomić gtypista bez pokazywania\n"
 "więcej razy tego okna.\n"
 "\n"
-"Są dwa rodzaje zadań: \"ćwiczenia\" i \"testy szybkości\". W \"ćwiczeniach"
-"\"\n"
+"Są dwa rodzaje zadań: \"ćwiczenia\" i \"testy szybkości\". W "
+"\"ćwiczeniach\"\n"
 "gtypist wyświetla tekst w co drugiej linii ekranu i czeka, aż użytkownik\n"
 "poprawnie wpisze dokładnie ten sam tekst w wierszach pomiędzy. W \"teście\n"
 "szybkości\" gtypist wyświetla tekst na ekranie i czeka, aż użytkownik\n"

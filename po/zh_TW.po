@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: GNU Typist 2.6\n"
 "Report-Msgid-Bugs-To: bug-gtypist@gnu.org\n"
-"POT-Creation-Date: 2021-08-16 22:07+0300\n"
+"POT-Creation-Date: 2023-04-08 15:22-0400\n"
 "PO-Revision-Date: 2012-02-06 17:43+0000\n"
 "Last-Translator: OLS3 <ols3@www.tnc.edu.tw>\n"
 "Language-Team: OLS3 <ols3@www.tnc.edu.tw>\n"
@@ -28,7 +28,7 @@ msgstr "無效的按鍵組合"
 msgid "invalid function key number"
 msgstr "無效的功能鍵數字"
 
-#: src/gtypist.c:426 src/gtypist.c:536 src/gtypist.c:844
+#: src/gtypist.c:426 src/gtypist.c:536 src/gtypist.c:846
 msgid "data exceeds screen length"
 msgstr "資料超出螢幕長度"
 
@@ -36,145 +36,145 @@ msgstr "資料超出螢幕長度"
 msgid "instructions are limited to two lines"
 msgstr "指令只限於二列長"
 
-#: src/gtypist.c:743 src/gtypist.c:1051 src/script.c:311
+#: src/gtypist.c:745 src/gtypist.c:1053 src/script.c:311
 msgid "internal error: fseek"
 msgstr "內部錯誤: fseek"
 
-#: src/gtypist.c:825 src/gtypist.c:1909 src/gtypist.c:1925 src/gtypist.c:1972
-#: src/gtypist.c:2009 src/gtypist.c:2029 src/script.c:145 src/script.c:169
+#: src/gtypist.c:827 src/gtypist.c:1911 src/gtypist.c:1927 src/gtypist.c:1974
+#: src/gtypist.c:2011 src/gtypist.c:2031 src/script.c:145 src/script.c:169
 #: src/script.c:256
 msgid "internal error: malloc"
 msgstr "內部錯誤: malloc"
 
-#: src/gtypist.c:1376
+#: src/gtypist.c:1378
 #, no-c-format
 msgid "'*' must immediately follow '%'"
 msgstr "'*' 必須立即接著 '%'"
 
-#: src/gtypist.c:1379 src/gtypist.c:1382
+#: src/gtypist.c:1381 src/gtypist.c:1384
 #, no-c-format
 msgid "missing '%'"
 msgstr "缺少了 '%'"
 
-#: src/gtypist.c:1386
+#: src/gtypist.c:1388
 #, no-c-format
 msgid "'%' must immediately follow value"
 msgstr "'%' 必須立即接著值"
 
-#: src/gtypist.c:1395
+#: src/gtypist.c:1397
 msgid "overflow in do_error_max_set"
 msgstr "溢位於 do_error_max_set"
 
-#: src/gtypist.c:1415
+#: src/gtypist.c:1417
 msgid "Invalid value for \"E:\" (out of range)"
 msgstr "無效的值 於  \"E:\" (超出範圍)"
 
-#: src/gtypist.c:1468 src/script.c:305
+#: src/gtypist.c:1470 src/script.c:305
 #, c-format
 msgid "label '%s' not found"
 msgstr "標示 '%s' 沒有找到"
 
-#: src/gtypist.c:1535
+#: src/gtypist.c:1537
 msgid "unknown command"
 msgstr "未知的命令"
 
-#: src/gtypist.c:1569
+#: src/gtypist.c:1571
 #, c-format
 msgid "Try '%s --help' for more information.\n"
 msgstr "試 '%s --help' 可得到較多的資訊.\n"
 
-#: src/gtypist.c:1576
+#: src/gtypist.c:1578
 #, fuzzy, c-format
 msgid "%s: invalid max-error value\n"
 msgstr "%s: 無效的 error-max 值\n"
 
-#: src/gtypist.c:1583
+#: src/gtypist.c:1585
 #, c-format
 msgid "%s: invalid curs-flash value\n"
 msgstr "%s: 無效的 curs-flash 值\n"
 
-#: src/gtypist.c:1593
+#: src/gtypist.c:1595
 #, c-format
 msgid "%s: invalid colours value\n"
 msgstr "%s: 無法的 colours 值\n"
 
-#: src/gtypist.c:1606
+#: src/gtypist.c:1608
 #, fuzzy, c-format
 msgid "%s: invalid banner-colours value\n"
 msgstr "%s: 無法的 colours 值\n"
 
-#: src/gtypist.c:1687
+#: src/gtypist.c:1689
 msgid " Tutorial "
 msgstr "   教學   "
 
-#: src/gtypist.c:1689
+#: src/gtypist.c:1691
 msgid "  Query   "
 msgstr "   查詢   "
 
-#: src/gtypist.c:1691
+#: src/gtypist.c:1693
 msgid "  Drill   "
 msgstr "   練習   "
 
-#: src/gtypist.c:1693
+#: src/gtypist.c:1695
 msgid "Speed test"
 msgstr "速度測驗"
 
-#: src/gtypist.c:1695
+#: src/gtypist.c:1697
 msgid " Press RETURN or SPACE to continue, ESC to return to the menu "
 msgstr ""
 
-#: src/gtypist.c:1698
+#: src/gtypist.c:1700
 #, fuzzy, c-format
 msgid " Your error-rate is too high. You have to achieve %.1f%%. "
 msgstr "您的錯誤率太高了. 您已達 %.1f%%."
 
-#: src/gtypist.c:1702
+#: src/gtypist.c:1704
 #, fuzzy, c-format
 msgid " You failed this test, so you need to go back to %s. "
 msgstr "您在這個測驗中沒有過關, 所以您必須回到 %s"
 
-#: src/gtypist.c:1706
+#: src/gtypist.c:1708
 #, fuzzy
 msgid " Press R to repeat, N for next exercise or E to exit "
 msgstr "按 R 重來一次, 按 N 進入下一個練習 或按 E 可離開"
 
-#: src/gtypist.c:1710
+#: src/gtypist.c:1712
 #, fuzzy
 msgid " Press R to repeat or E to exit "
 msgstr "按 R 重來一次 或 按 E 可離開"
 
-#: src/gtypist.c:1713
+#: src/gtypist.c:1715
 #, fuzzy
 msgid " Are you sure you want to exit this lesson? [Y/N] "
 msgstr "您確定要離開這個課程嗎? [Y/N]"
 
-#: src/gtypist.c:1717
+#: src/gtypist.c:1719
 #, fuzzy
 msgid " Sorry, gtypist is configured to forbid skipping exercises. "
 msgstr "抱歉, gtypist 目前設定禁止跳過練習"
 
-#: src/gtypist.c:1722
+#: src/gtypist.c:1724
 msgid "Y/N"
 msgstr "Y/N"
 
-#: src/gtypist.c:1732
+#: src/gtypist.c:1734
 msgid "R/N/E"
 msgstr "R/N/E"
 
-#: src/gtypist.c:1753
+#: src/gtypist.c:1755
 #, c-format
 msgid "%s: %s environment variable not set\n"
 msgstr ""
 
-#: src/gtypist.c:1800
+#: src/gtypist.c:1802
 msgid "can't find or open file"
 msgstr "找不到 或 無法開啟 檔案"
 
-#: src/gtypist.c:1854
+#: src/gtypist.c:1856
 msgid "Loading the script..."
 msgstr ""
 
-#: src/gtypist.c:1964
+#: src/gtypist.c:1966
 msgid "internal error: fopen"
 msgstr "內部錯誤: fopen"
 
@@ -243,8 +243,8 @@ msgid ""
 "Welcome to GNU Typist!\n"
 "\n"
 "This message is meant to get you started using gtypist. Please read the\n"
-"manual (at http://www.gnu.org/software/gtypist/doc/, or type \"info gtypist"
-"\")\n"
+"manual (at http://www.gnu.org/software/gtypist/doc/, or type \"info "
+"gtypist\")\n"
 "for more in-depth information!\n"
 "\n"
 "Use the arrow keys or PGUP/PGDN to scroll this window, SPACE/ENTER to start\n"
