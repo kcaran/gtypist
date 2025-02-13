@@ -4,7 +4,7 @@
 # Copyright (C) 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011,
 #               2012, 2013, 2014, 2016, 2017, 2018, 2019, 2020
 #               Felix Natter, Paul Goins, Tim Marston, Mihai Gătejescu
-# Copyright (C) 2021, 2022, 2023 Felix Natter, Mihai Gătejescu
+# Copyright (C) 2021, 2022, 2023, 2024 Felix Natter, Mihai Gătejescu
 #
 # GNU Typist is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -320,7 +320,7 @@ T:
  :Shakespeare's plays.  The spelling and punctuation are
  :quite hard.  Take your time and type them carefully.
 
-I:Romeo and Juliet, Act II, Scene II (Capulet's Garden).
+I:Romeo and Juliet, Act II, Scene II (Capulet's Garden 1/2)
 *:_S_R_L34
 S:But, soft! what light through yonder window breaks?
  :It is the east, and Juliet is the sun!--
@@ -336,6 +336,7 @@ S:But, soft! what light through yonder window breaks?
  :Her eye discourses, I will answer it.--
  :I am too bold, 'tis not to me she speaks:
 
+I:Romeo and Juliet, Act II, Scene II (Capulet's Garden 2/2)
 *:_S_R_L35
 S:Two of the fairest stars in all the heaven,
  :Having some business, do entreat her eyes
@@ -349,7 +350,7 @@ S:Two of the fairest stars in all the heaven,
  :O, that I were a glove upon that hand,
  :That I might touch that cheek!
 
-I:Julius Caesar, Act III, Scene II (The Forum).
+I:Julius Caesar, Act III, Scene II (The Forum 1/3)
 *:_S_R_L36
 S:Friends, Romans, countrymen, lend me your ears;
  :I come to bury Caesar, not to praise him.
@@ -367,6 +368,7 @@ S:Friends, Romans, countrymen, lend me your ears;
  :But Brutus says he was ambitious;
  :And Brutus is an honourable man.
 
+I:Julius Caesar, Act III, Scene II (The Forum 2/3)
 *:_S_R_L37
 S:He hath brought many captives home to Rome.
  :Whose ransoms did the general coffers fill:
@@ -381,6 +383,7 @@ S:He hath brought many captives home to Rome.
  :Yet Brutus says he was ambitious;
  :And, sure, he is an honourable man.
 
+I:Julius Caesar, Act III, Scene II (The Forum 3/3)
 *:_S_R_L38
 S:I speak not to disprove what Brutus spoke,
  :But here I am to speak what I do know.
@@ -391,7 +394,7 @@ S:I speak not to disprove what Brutus spoke,
  :My heart is in the coffin there with Caesar,
  :And I must pause till it come back to me.
 
-I:The Merchant of Venice, Act IV, Scene I (A Court of Justice).
+I:The Merchant of Venice, Act IV, Scene I (A Court of Justice 1/2)
 *:_S_R_L39
 S:The quality of mercy is not strain'd;
  :It droppeth as the gentle rain from heaven
@@ -403,6 +406,7 @@ S:The quality of mercy is not strain'd;
  :The attribute to awe and majesty,
  :Wherein doth sit the dread and fear of kings;
 
+I:The Merchant of Venice, Act IV, Scene I (A Court of Justice 2/2)
 *:_S_R_L40
 S:But mercy is above this scepter'd sway,--
  :It is enthroned in the heart of kings,
@@ -437,6 +441,7 @@ S:There be some sports are painful, and their labour
  :Most busy lest, when I do it.
 
 I:The Tempest, Act IV, Scene I (Before Prospero's cell)
+*:_SR_L42
 S:You do look, my son, in a moved sort,
  :As if you were dismay'd: be cheerful, sir.
  :Our revels now are ended. These our actors,
@@ -457,6 +462,7 @@ S:You do look, my son, in a moved sort,
  :To still my beating mind.
 
 I:The Tempest, Act V, Scene I (Before Prospero's cell)
+*:_SR_L43
 S:But this rough magic
  :I here abjure; and, when I have required
  :Some heavenly music,--which even now I do,--
@@ -465,6 +471,50 @@ S:But this rough magic
  :Bury it certain fathoms in the earth,
  :And deeper than did ever plummet sound
  :I'll drown my book.
+
+I:Hamlet, Act III, Scene I, (A room in the castle 1/3)
+*:_SR_L44
+S:To be, or not to be, that is the question:
+ :Whether 'tis nobler in the mind to suffer
+ :The slings and arrows of outrageous fortune,
+ :Or to take arms against a sea of troubles,
+ :And, by opposing end them?--To die,--to sleep,
+ :No more;--and by a sleep, to say we end
+ :The heart-ache, and the thousand natural shocks
+ :That flesh is heir to: 'tis a consummation
+ :Devoutly to be wished. To die,--to sleep,--
+ :To sleep! perchance to dream: ay, there's the rub;
+ :For in that sleep of death what dreams may come,
+ :When we have shuffled off this mortal coil,
+ :Must give us pause: There's the respect
+ :That makes calamity of so long life;
+
+I:Hamlet, Act III, Scene I, (A room in the castle 2/3)
+*:_SR_L45
+S:For who would bear the whips and scorns of time,
+ :The oppressor's wrong, the proud man's contumely,
+ :The pangs of despised love, the law's delay,
+ :The insolence of office, and the spurns
+ :That patient merit of the unworthy takes,
+ :When he himself might his quietus make
+ :With a bare bodkin? Who would fardels bear,
+ :To groan and sweat under a weary life
+ :But that the dread of something after death,
+ :The undiscovered country, from whose bourn
+ :No traveller returns, puzzles the will,
+ :And makes us rather bear those ills we have
+ :Than fly to others that we know not of?
+
+I:Hamlet, Act III, Scene I, (A room in the castle 3/3)
+*:_SR_L46
+S:Thus, conscience does make cowards of us all;
+ :And thus, the native hue of resolution
+ :Is sicklied o'er with the pale cast of thought;
+ :And enterprises of great pith and moment,
+ :With this regard, their currents turn away,
+ :And lose the name of action. Soft you now!
+ :The fair Ophelia:--Nymph, in thy orisons
+ :Be all my sins remember'd.
 
 G:_S_E_S4
 

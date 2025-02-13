@@ -5,7 +5,7 @@
 #               2017, 2018, 2019, 2020
 #               Felix Natter, Paul Goins, Tim Marston,
 #               clutton, Mihai Gătejescu
-# Copyright (C) 2021, 2022, 2023 Felix Natter, Mihai Gătejescu
+# Copyright (C) 2021, 2022, 2023, 2025 Felix Natter, Mihai Gătejescu
 #
 # This file is a part of GNU Typist
 #
@@ -22,7 +22,9 @@
 # You should have received a copy of the GNU General Public License
 # along with GNU Typist.  If not, see <http://www.gnu.org/licenses/>.
 
-AC_INIT([GNU Typist], [esyscmd(./version.sh)], [bug-gtypist@gnu.org], [gtypist])
+AC_INIT([GNU Typist],
+        m4_bregexp(m4_include([version.sh]), [[0-9]+\.[0-9]+\.[0-9]+], [\&]),
+        [bug-gtypist@gnu.org], [gtypist])
 AM_INIT_AUTOMAKE([1.8.2 gnu dist-xz])
 AC_CONFIG_SRCDIR([src/gtypist.c])
 AM_CONFIG_HEADER([config.h])

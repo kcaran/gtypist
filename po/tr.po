@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: GNU Typist 2.9beta1\n"
 "Report-Msgid-Bugs-To: bug-gtypist@gnu.org\n"
-"POT-Creation-Date: 2023-04-08 15:22-0400\n"
+"POT-Creation-Date: 2024-09-09 17:21+0200\n"
 "PO-Revision-Date: 2012-02-06 17:38+0000\n"
 "Last-Translator: Gökçen Eraslan <gokcen@pardus.org.tr>\n"
 "Language-Team: Turkish <pardus-translators@pardus.org.tr>\n"
@@ -30,7 +30,7 @@ msgstr "geçersiz tuş ataması"
 msgid "invalid function key number"
 msgstr "geçersiz fonksiyon tuş numarası"
 
-#: src/gtypist.c:426 src/gtypist.c:536 src/gtypist.c:846
+#: src/gtypist.c:426 src/gtypist.c:536 src/gtypist.c:844
 msgid "data exceeds screen length"
 msgstr "veri ekran boyunu aşıyor"
 
@@ -38,154 +38,145 @@ msgstr "veri ekran boyunu aşıyor"
 msgid "instructions are limited to two lines"
 msgstr "talimatlar iki satırla sınırlıdır"
 
-#: src/gtypist.c:745 src/gtypist.c:1053 src/script.c:311
+#: src/gtypist.c:743 src/gtypist.c:1051 src/script.c:311
 msgid "internal error: fseek"
 msgstr "iç hata: fseek"
 
-#: src/gtypist.c:827 src/gtypist.c:1911 src/gtypist.c:1927 src/gtypist.c:1974
-#: src/gtypist.c:2011 src/gtypist.c:2031 src/script.c:145 src/script.c:169
-#: src/script.c:256
+#: src/gtypist.c:825 src/gtypist.c:1902 src/gtypist.c:1918 src/gtypist.c:1965 src/gtypist.c:2002 src/gtypist.c:2022 src/script.c:145 src/script.c:169 src/script.c:256
 msgid "internal error: malloc"
 msgstr "İç hata: malloc"
 
-#: src/gtypist.c:1378
+#: src/gtypist.c:1376
 #, no-c-format
 msgid "'*' must immediately follow '%'"
 msgstr "'*' karakteri '%' karakterinin hemen ardından gelmeli"
 
-#: src/gtypist.c:1381 src/gtypist.c:1384
+#: src/gtypist.c:1379 src/gtypist.c:1382
 #, no-c-format
 msgid "missing '%'"
 msgstr "eksik '%'"
 
-#: src/gtypist.c:1388
+#: src/gtypist.c:1386
 #, no-c-format
 msgid "'%' must immediately follow value"
 msgstr "'%' karakteri bir değerin ardından gelmeli"
 
-#: src/gtypist.c:1397
+#: src/gtypist.c:1395
 msgid "overflow in do_error_max_set"
 msgstr "do_error_max_set fonksiyonunda taşma"
 
-#: src/gtypist.c:1417
+#: src/gtypist.c:1415
 msgid "Invalid value for \"E:\" (out of range)"
 msgstr "geçersiz \"E:\" değeri (aralık dışında)"
 
-#: src/gtypist.c:1470 src/script.c:305
+#: src/gtypist.c:1468 src/script.c:305
 #, c-format
 msgid "label '%s' not found"
 msgstr "'%s' etiketi bulunamadı"
 
-#: src/gtypist.c:1537
+#: src/gtypist.c:1528
 msgid "unknown command"
 msgstr "bilinmeyen komut"
 
-#: src/gtypist.c:1571
+#: src/gtypist.c:1562
 #, c-format
 msgid "Try '%s --help' for more information.\n"
 msgstr "Daha fazla bilgi için '%s --help' komutunu kullanın\n"
 
-#: src/gtypist.c:1578
+#: src/gtypist.c:1569
 #, fuzzy, c-format
 msgid "%s: invalid max-error value\n"
 msgstr "%s: geçersiz error-max değeri\n"
 
-#: src/gtypist.c:1585
+#: src/gtypist.c:1576
 #, c-format
 msgid "%s: invalid curs-flash value\n"
 msgstr "%s: geçersiz curs-flash değeri\n"
 
-#: src/gtypist.c:1595
+#: src/gtypist.c:1586
 #, c-format
 msgid "%s: invalid colours value\n"
 msgstr "%s: geçersiz colours değeri\n"
 
-#: src/gtypist.c:1608
+#: src/gtypist.c:1599
 #, fuzzy, c-format
 msgid "%s: invalid banner-colours value\n"
 msgstr "%s: geçersiz colours değeri\n"
 
-#: src/gtypist.c:1689
+#: src/gtypist.c:1680
 msgid " Tutorial "
 msgstr " Eğitim "
 
-#: src/gtypist.c:1691
+#: src/gtypist.c:1682
 msgid "  Query   "
 msgstr "  Sorgu   "
 
-#: src/gtypist.c:1693
+#: src/gtypist.c:1684
 msgid "  Drill   "
 msgstr "  Atış talimi   "
 
-#: src/gtypist.c:1695
+#: src/gtypist.c:1686
 msgid "Speed test"
 msgstr "Hız testi"
 
-#: src/gtypist.c:1697
+#: src/gtypist.c:1688
 msgid " Press RETURN or SPACE to continue, ESC to return to the menu "
-msgstr ""
-" Devam etmek için SPACE ya da ENTER tuşuna, ana menüye dönmek içinse ESC'ye "
-"basın "
+msgstr " Devam etmek için SPACE ya da ENTER tuşuna, ana menüye dönmek içinse ESC'ye basın "
 
-#: src/gtypist.c:1700
+#: src/gtypist.c:1691
 #, c-format
 msgid " Your error-rate is too high. You have to achieve %.1f%%. "
 msgstr "Hata oranı çok yüksek. %.1f%% oranına ulaşmanız gerekiyor. "
 
-#: src/gtypist.c:1704
+#: src/gtypist.c:1695
 #, c-format
 msgid " You failed this test, so you need to go back to %s. "
 msgstr " Bu testi geçemediniz, %s bölümüne dönmeniz gerekiyor. "
 
-#: src/gtypist.c:1708
+#: src/gtypist.c:1699
 msgid " Press R to repeat, N for next exercise or E to exit "
-msgstr ""
-" Tekrarlamak için T'ye, devam etmek için D'ye, çıkmak içinse Ç'ye basın"
+msgstr " Tekrarlamak için T'ye, devam etmek için D'ye, çıkmak içinse Ç'ye basın"
 
-#: src/gtypist.c:1712
+#: src/gtypist.c:1703
 msgid " Press R to repeat or E to exit "
 msgstr " Tekrarlamak için T'ye ya da çıkmak için Ç'ye basın "
 
-#: src/gtypist.c:1715
+#: src/gtypist.c:1706
 msgid " Are you sure you want to exit this lesson? [Y/N] "
 msgstr " Bu dersten çıkmak istediğinize emin misiniz? [E/H] "
 
-#: src/gtypist.c:1719
+#: src/gtypist.c:1710
 msgid " Sorry, gtypist is configured to forbid skipping exercises. "
 msgstr " Üzgünüm, gtypist alıştırmaları geçmenizi engellemek üzere ayarlandı. "
 
-#: src/gtypist.c:1724
+#: src/gtypist.c:1715
 msgid "Y/N"
 msgstr "E/H"
 
-#: src/gtypist.c:1734
+#: src/gtypist.c:1725
 msgid "R/N/E"
 msgstr "T/D/Ç"
 
-#: src/gtypist.c:1755
+#: src/gtypist.c:1746
 #, fuzzy, c-format
 msgid "%s: %s environment variable not set\n"
 msgstr "%s: HOME çevre değişkeni ayarlanmamış\n"
 
-#: src/gtypist.c:1802
+#: src/gtypist.c:1793
 msgid "can't find or open file"
 msgstr "dosya bulunamadı ya da açılamadı"
 
-#: src/gtypist.c:1856
+#: src/gtypist.c:1847
 msgid "Loading the script..."
 msgstr "Betik yükleniyor..."
 
-#: src/gtypist.c:1966
+#: src/gtypist.c:1957
 msgid "internal error: fopen"
 msgstr " iç hata: fopen"
 
 #: src/cursmenu.c:326
-msgid ""
-"Use arrowed keys to move around, SPACE or RETURN to select and ESCAPE to go "
-"back"
-msgstr ""
-"Gezinmek için ok tuşlarını, seçmek için SPACE ya da RETURN tuşlarını ve  "
-"geriye gitmek için de ESC tuşunu kullanın."
+msgid "Use arrowed keys to move around, SPACE or RETURN to select and ESCAPE to go back"
+msgstr "Gezinmek için ok tuşlarını, seçmek için SPACE ya da RETURN tuşlarını ve  geriye gitmek için de ESC tuşunu kullanın."
 
 #: src/error.c:56
 msgid "line"
@@ -248,30 +239,24 @@ msgid ""
 "Welcome to GNU Typist!\n"
 "\n"
 "This message is meant to get you started using gtypist. Please read the\n"
-"manual (at http://www.gnu.org/software/gtypist/doc/, or type \"info "
-"gtypist\")\n"
+"manual (at http://www.gnu.org/software/gtypist/doc/, or type \"info gtypist\")\n"
 "for more in-depth information!\n"
 "\n"
 "Use the arrow keys or PGUP/PGDN to scroll this window, SPACE/ENTER to start\n"
 "using gtypist, or 'D' to use gtypist and never show this dialog again.\n"
 "\n"
-"There are two types of typing exercises: \"drills\" and \"speed tests\". In "
-"a\n"
-"\"drill\", gtypist displays text in every other line on the screen and "
-"waits\n"
+"There are two types of typing exercises: \"drills\" and \"speed tests\". In a\n"
+"\"drill\", gtypist displays text in every other line on the screen and waits\n"
 "for the user to correctly type the exact same text in the intermediate\n"
 "lines. In a \"speed test\", gtypist displays text on the screen and waits\n"
 "for the user to correctly type the exact same text over the top.\n"
 "\n"
-"In both exercise types, you have to repeat the test if your error "
-"percentage\n"
-"is higher than a maximum error percentage. The default is 3%, but if this "
-"is\n"
+"In both exercise types, you have to repeat the test if your error percentage\n"
+"is higher than a maximum error percentage. The default is 3%, but if this is\n"
 "too difficult you can change it by running gtypist with the \"-e <maxpct>\"\n"
 "command-line option.\n"
 "\n"
-"On most X11-based terminal emulators you can use Ctrl--/Ctrl-+ to resize "
-"the\n"
+"On most terminal emulators you can use Ctrl--/Ctrl-+ to resize the\n"
 "terminal window. For Mac OS X, Command--/Command-+ serve this purpose.\n"
 "On Windows, change the properties of the terminal window by clicking on\n"
 "the top left corner of the window and choosing 'Properties'.\n"
@@ -284,7 +269,7 @@ msgid ""
 "\"More lessons...\" from the main menu.\n"
 "To use one of these other lessons, run gtypist with the name of the lesson\n"
 "file (including .typ) as a command-line argument. See the comments at the\n"
-"top of each file for more information about the source and the au7thor of\n"
+"top of each file for more information about the source and the author of\n"
 "the lessons. If you want to write your own lessons, look at gtypist's\n"
 "manual, it's really simple!\n"
 "\n"
@@ -299,8 +284,7 @@ msgid "Welcome screen"
 msgstr ""
 
 #: src/infoview.c:273
-msgid ""
-"Press SPACE, ENTER or ESCAPE to start gtypist, or 'D' to disable this dialog"
+msgid "Press SPACE, ENTER or ESCAPE to start gtypist, or 'D' to disable this dialog"
 msgstr ""
 
 #. TRANSLATORS: a '|' character in this message divides it in to two
@@ -368,12 +352,8 @@ msgstr "|yeni kişisel rekor"
 #~ msgid "track personal best typing speeds"
 #~ msgstr "kişisel hız rekorlarını takip et"
 
-#~ msgid ""
-#~ "default maximum error percentage (default 3.0); valid values are between "
-#~ "0.0 and 100.0"
-#~ msgstr ""
-#~ "öntanımlı azami hata yüzdesi (default 3.0); gerçerli değerler 0.0 ile "
-#~ "100.0 arasındadır"
+#~ msgid "default maximum error percentage (default 3.0); valid values are between 0.0 and 100.0"
+#~ msgstr "öntanımlı azami hata yüzdesi (default 3.0); gerçerli değerler 0.0 ile 100.0 arasındadır"
 
 #~ msgid "turn off WPM timer in drills"
 #~ msgstr "atış talimlerinde WPM sayacını kapat"
@@ -381,12 +361,8 @@ msgstr "|yeni kişisel rekor"
 #~ msgid "use the terminal's hardware cursor"
 #~ msgstr "terminalin donanım imlecini kullan"
 
-#~ msgid ""
-#~ "cursor flash period P*.1 sec (default 10); valid  values are between 0 "
-#~ "and 512; this is ignored if -t is specified"
-#~ msgstr ""
-#~ "imleç görünme süresi P * 0.1 sn. (öntanımlı 10); geçerli değerler 0 ile "
-#~ "512 arasındadır; bu değer -t verildiğinde yoksayılacaktır"
+#~ msgid "cursor flash period P*.1 sec (default 10); valid  values are between 0 and 512; this is ignored if -t is specified"
+#~ msgstr "imleç görünme süresi P * 0.1 sn. (öntanımlı 10); geçerli değerler 0 ile 512 arasındadır; bu değer -t verildiğinde yoksayılacaktır"
 
 #~ msgid "set initial display colours where available"
 #~ msgstr "mümkünse renkleri değiştir"
@@ -418,23 +394,17 @@ msgstr "|yeni kişisel rekor"
 #~ msgid "do not ask confirmation questions"
 #~ msgstr "onay soruları sorma"
 
-#~ msgid ""
-#~ "set top banner colours (background, foreground, package and version "
-#~ "respectively)"
-#~ msgstr ""
-#~ "en üst şeritin renklerini değiştir (arkaplan, önplan, paket ve sürüm)"
+#~ msgid "set top banner colours (background, foreground, package and version respectively)"
+#~ msgstr "en üst şeritin renklerini değiştir (arkaplan, önplan, paket ve sürüm)"
 
 #~ msgid "set scoring mode (words per minute or characters per minute)"
 #~ msgstr "puanlama kipini değiştir (dakikadaki kelime ya da karakter sayısı)"
 
 #~ msgid ""
-#~ "`gtypist' is a typing tutor with several lessons for different keyboards "
-#~ "and languages.  New lessons can be written by the user easily.\n"
+#~ "`gtypist' is a typing tutor with several lessons for different keyboards and languages.  New lessons can be written by the user easily.\n"
 #~ "\n"
 #~ msgstr ""
-#~ "`gtypist' çeşitli klavyeler ve diller için bir çok ders içeren bir yazım "
-#~ "eğitim uygulamasıdır.  Kullanıcılar da kolayca yeni dersler "
-#~ "ekleyebilirler.\n"
+#~ "`gtypist' çeşitli klavyeler ve diller için bir çok ders içeren bir yazım eğitim uygulamasıdır.  Kullanıcılar da kolayca yeni dersler ekleyebilirler.\n"
 #~ "\n"
 
 #~ msgid "Usage"
@@ -472,18 +442,11 @@ msgstr "|yeni kişisel rekor"
 #~ msgid "To run the lesson in spanish"
 #~ msgstr "Dersi İspanyolca başlatmak için"
 
-#~ msgid ""
-#~ "To instruct gtypist to look for lesson `bar.typ' in a non standard "
-#~ "directory"
-#~ msgstr ""
-#~ "gtypist'in standart bir dizinde olmayan `bar.typ' betiğini bulması için"
+#~ msgid "To instruct gtypist to look for lesson `bar.typ' in a non standard directory"
+#~ msgstr "gtypist'in standart bir dizinde olmayan `bar.typ' betiğini bulması için"
 
-#~ msgid ""
-#~ "To run the lesson in the file `test.typ' of directory `temp', starting at "
-#~ "label `TEST1', using the terminal's cursor, and run silently"
-#~ msgstr ""
-#~ "`temp' dizinindeki `test.typ' betiğini `TEST1' etiketinden başlayıp, "
-#~ "terminal imlecini kullanarak, sessizce çalıştırmak için"
+#~ msgid "To run the lesson in the file `test.typ' of directory `temp', starting at label `TEST1', using the terminal's cursor, and run silently"
+#~ msgstr "`temp' dizinindeki `test.typ' betiğini `TEST1' etiketinden başlayıp, terminal imlecini kullanarak, sessizce çalıştırmak için"
 
 #~ msgid "Report bugs to bug-gtypist@gnu.org"
 #~ msgstr "Hataları bug-gtypist@gnu.org adresine bildirebilirsiniz"

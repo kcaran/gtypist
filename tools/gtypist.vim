@@ -6,7 +6,7 @@
 "               Simon Baldwin (simonb@sco.com)
 " Copyright (C) 2003, 2004, 2008, 2009, 2011, 2012, 2013, 2014, 2016,
 "               2017, 2018, 2019  Felix Natter
-" Copyright (C) 2021, 2022, 2023 Felix Natter, Mihai Gătejescu
+" Copyright (C) 2021, 2022, 2023, 2024 Felix Natter, Mihai Gătejescu
 "
 " GNU Typist is free software: you can redistribute it and/or modify
 " it under the terms of the GNU General Public License as published by
@@ -60,11 +60,10 @@
 " ':set ft?' in vim, which should return 'filetype=gtypist'.
 
 " ChangeLog:
-" Sat Oct 20 14:35:44 CEST 2001: initial version
-" Sun Oct 21 02:48:24 CEST 2001: use "Error" for gtypistExitCmd
-
-" TODO:
-" - E: color number in Float
+" 2001-10-20: initial version
+" 2001-10-21: use "Error" for gtypistExitCmd
+" 2024-05-01: fix - scrolling up will properly highlight drill text
+" 2024-05-02: use "Float" for the error-rate value in the E command
 
 " For version 5.x: Clear all syntax-items
 " For version 6.x: Quit when a syntax-file was already loaded
@@ -77,14 +76,17 @@ endif
 syn case match
 
 syn keyword gtypistKeyword default Default NULL
-" this is necessary so that ':' is not colored
-syn match gtypistCmdSeparator ":" contained
-syn match gtypistCmd "^[A-Za-z ]:" contains=gtypistCmdSeparator
-syn match gtypistExitCmd "^X:" contains=gtypistCmdSeparator
-syn match gtypistSetLabelCmd "^\*:" contains=gtypistCmdSeparator
 syn keyword gtypistTODO TODO FIXME NOTE XXX contained
 syn match gtypistComment "^[#!].*" contains=gtypistTODO
-syn region gtypistDrillContent start="^[DdSs]:" skip="^ :" end="^" contains=gtypistCmd
+" this is necessary so that ':' is not colored
+syn match gtypistCmdSeparator ":" contained
+syn match gtypistCmd "^[A-Za-z]:" contains=gtypistCmdSeparator
+syn match gtypistExitCmd "^X:" contains=gtypistCmdSeparator
+syn match percentChar "%" contained
+syn match gtypistSetErrorPer "^E:[0-9]*%" contains=gtypistCmd, percentChar
+syn match gtypistSetLabelCmd "^\*:" contains=gtypistCmdSeparator
+syn match gtypistString "^ :.*" contains=gtypistCmdSeparator
+syn region gtypistDrillContent start="^[DdSsMm]:" skip="^ :" end="^" contains=gtypistCmd,gtypistString
 syn match gtypistLabel "^\*:.*" contains=gtypistSetLabelCmd
 syn match gtypistLabelRef "^[GYNF]:.*" contains=gtypistCmd
 syn match gtypistKeybind "^K:[0-9]\+:" contains=gtypistCmd,gtypistCmdSeparator
@@ -99,8 +101,10 @@ if !exists("did_gtypist_syntax_inits")
   highlight link gtypistKeyword Keyword
   highlight link gtypistCmd SpecialChar
   highlight link gtypistExitCmd Error
-  highlight link gtypistComment Comment
+  highlight link gtypistSetErrorPer Float
+  highlight link gtypistString String
   highlight link gtypistDrillContent String
+  highlight link gtypistComment Comment
   highlight link gtypistTODO Todo
 " Delimiter looks the same as SpecialChar, so this is commented out
 "  highlight link gtypistCmdSeparator Delimiter

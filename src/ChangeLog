@@ -1,3 +1,31 @@
+2025-01-30  Mihai Gătejescu <gus666xe@gmail.com>
+
+	* cmdline.c, cmdline.h, cmdline.ggo: Completely remove the gengetopt
+	generated files from the project and update the copyright message
+	in the generating script
+
+2024-08-11  Felix Natter <fnatter@gmx.net>
+
+	* infoview.c: Fix typo in welcome screen and remove "X11-based"
+	from sentence with "terminal emulators" in order to account for
+	Wayland
+
+2024-05-15 Mihai Gătejescu <gus666xe@gmail.com>
+
+    * gtypist.c: Update a few comments
+
+2024-05-08 Mihai Gătejescu <gus666xe@gmail.com>
+
+    * gtypist.c: Update indentation
+
+2024-05-06 Mihai Gătejescu <gus666xe@gmail.com>
+
+    * gtypist.c: Fix a typo in a comment
+
+2024-04-29 Mihai Gătejescu <gus666xe@gmail.com>
+
+    * script.h: Add the external keyword to function declaration
+
 2023-01-11 Mihai Gătejescu <gus666xe@gmail.com>
 
     * all files: Update copyright years

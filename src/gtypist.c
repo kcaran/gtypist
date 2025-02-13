@@ -7,7 +7,7 @@
  *               2017, 2018, 2019, 2020
  *               Hynek Hanke, Dmitry Rutsky, Paul Goins, Tim Marston,
  *               Felix Natter, clutton, Mihai Gătejescu
- * Copyright (C) 2021, 2022, 2023 Felix Natter, Mihai Gătejescu
+ * Copyright (C) 2021, 2022, 2023, 2024 Felix Natter, Mihai Gătejescu
  *
  * GNU Typist is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -119,10 +119,10 @@ wchar_t *RNE;
 
 
 /* some colour definitions */
-static short	colour_array[] = {
+static short colour_array[] = {
   COLOR_BLACK, COLOR_RED, COLOR_GREEN, COLOR_YELLOW,
   COLOR_BLUE, COLOR_MAGENTA, COLOR_CYAN, COLOR_WHITE };
-#define	NUM_COLOURS		(sizeof( colour_array ) / sizeof( short ))
+#define	NUM_COLOURS (sizeof( colour_array ) / sizeof( short ))
 
 #ifdef MINGW
 #define MIN( a, b ) ( ( a ) < ( b )? ( a ) : ( b ) )
@@ -1482,7 +1482,7 @@ void do_on_failure_label_set( FILE *script, char *line )
 static
 void parse_file( FILE *script, char *label )
 {
-  char	line[MAX_SCR_LINE];		/* line buffer */
+  char	line[MAX_SCR_LINE];     /* line buffer */
   char	command;          /* current command */
 
   /* if label given then start running there */
@@ -1503,26 +1503,19 @@ void parse_file( FILE *script, char *label )
     command = SCR_COMMAND( line );
     switch( command )
     {
-      case C_TUTORIAL:
-        do_tutorial( script, line ); break;
-      case C_INSTRUCTION:
-        do_instruction( script, line ); break;
+      case C_TUTORIAL:  do_tutorial( script, line ); break;
+      case C_INSTRUCTION: do_instruction( script, line ); break;
       case C_CLEAR:	do_clear( script, line ); break;
       case C_GOTO:	do_goto( script, line, TRUE ); break;
       case C_EXIT:	do_exit( script ); break;
       case C_QUERY:	do_query( script, line ); break;
-      case C_YGOTO:	do_goto( script, line, global_resp_flag );
-        break;
-      case C_NGOTO:	do_goto( script, line, !global_resp_flag );
-        break;
+      case C_YGOTO:	do_goto( script, line, global_resp_flag ); break;
+      case C_NGOTO:	do_goto( script, line, !global_resp_flag ); break;
       case C_DRILL:
-      case C_DRILL_PRACTICE_ONLY:
-        do_drill( script, line ); break;
+      case C_DRILL_PRACTICE_ONLY: do_drill( script, line ); break;
       case C_SPEEDTEST:
-      case C_SPEEDTEST_PRACTICE_ONLY:
-        do_speedtest( script, line ); break;
+      case C_SPEEDTEST_PRACTICE_ONLY: do_speedtest( script, line ); break;
       case C_KEYBIND:	do_keybind( script, line ); break;
-
       case C_LABEL:
          __update_last_label (SCR_DATA (line));
          get_script_line (script, line);
@@ -1651,10 +1644,10 @@ FILE *open_script( const char *filename )
 */
 int main( int argc, char **argv )
 {
-  WINDOW	*scr;		  	/* curses window */
-  FILE	*script;			/* script file handle */
-  char	*p, filepath[FILENAME_MAX];	/* file paths */
-  char	script_file[FILENAME_MAX];	/* more file paths */
+  WINDOW *scr;                    /* curses standard screen - default window */
+  FILE *script;                         /* script file handle */
+  char *p, filepath[FILENAME_MAX];      /* file paths */
+  char script_file[FILENAME_MAX];       /* more file paths */
 
   /* get our program name */
   argv0 = argv[0] + strlen( argv[0] );
@@ -1762,7 +1755,7 @@ int main( int argc, char **argv )
   /* figure out what script file to use */
   if ( cl_args.inputs_num == 1 )
   {
-    /* try and open scipr file from command line */
+    /* try to open the script file from command line */
     strcpy( script_file, cl_args.inputs[ 0 ] );
     script = open_script( script_file );
 
@@ -1833,8 +1826,8 @@ int main( int argc, char **argv )
     start_color ();
 
     init_pair (C_NORMAL,
-    colour_array [cl_fgcolour],
-    colour_array [cl_bgcolour]);
+        colour_array [cl_fgcolour],
+        colour_array [cl_bgcolour]);
     wbkgdset (stdscr, COLOR_PAIR (C_NORMAL));
 
     init_pair (C_BANNER,
@@ -1887,13 +1880,13 @@ void do_bell() {
 bool get_best_speed( const char *script_filename,
                      const char *excersise_label, double *adjusted_cpm )
 {
-  FILE *blfile;       				/* bestlog file */
-  char *search;			        	/* string to match in bestlog */
-  char line[FILENAME_MAX];		/* single line from bestlog */
-  int search_len;		        	/* length of search string */
-  bool found = FALSE;		    	/* did we find it? */
+  FILE *blfile;                 /* bestlog file */
+  char *search;                 /* string to match in bestlog */
+  char line[FILENAME_MAX];      /* single line from bestlog */
+  int search_len;               /* length of search string */
+  bool found = FALSE;           /* did we find it? */
   int a;
-  char *fixed_script_filename;		/* fixed-up script filename */
+  char *fixed_script_filename;  /* fixed-up script filename */
   char *p;
 
   /* open best speeds file */

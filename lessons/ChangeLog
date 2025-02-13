@@ -1,3 +1,42 @@
+2024-08-09 Mihai Gătejescu <gus666xe@gmail.com>
+
+	* symq.typ, symt.typ, Makefile.am: Add the lessons
+	using the symmetric system
+
+2024-08-04 Mihai Gătejescu <gus666xe@gmail.com>
+
+	* Makefile.am: Update the lessons list
+
+2024-08-04 Mihai Gătejescu <gus666xe@gmail.com>
+
+	* ktde.typ, ktno.typ: Add two updated lessons
+
+2024-08-04 Mihai Gătejescu <gus666xe@gmail.com>
+
+	* ktbg_long.typ, ktfi_kids.typ, kthu.typ,
+	kthu_expert.typ, ktno.typ: Remove old lessons
+
+2024-07-15 Mihai Gătejescu <gus666xe@gmail.com>
+
+	* kt*.typ: Remove and replace KTouch lessons
+
+2024-07-15 Mihai Gătejescu <gus666xe@gmail.com>
+
+	* ttde.typ: Remove lesson due to copyright reasons
+
+2024-04-15 Mihai Gătejescu <gus666xe@gmail.com>
+
+	* r.typ, t.typ: Fix a few spelling errors and
+	update copyright. Patch from Debian
+
+2024-01-14 Mihai Gătejescu <gus666xe@gmail.com>
+
+	* s.typ: Tag and count the Shakespeare lessons
+
+2024-01-14 Mihai Gătejescu <gus666xe@gmail.com>
+
+	* s.typ: Add a passage from Hamlet
+
 2023-01-27 Mihai Gătejescu <gus666xe@gmail.com>
 
 	* all files except ktouch: Update copyright

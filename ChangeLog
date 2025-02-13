@@ -1,3 +1,30 @@
+2025-02-02  Mihai Gătejescu <gus666xe@gmail.com>
+
+    * configure.ac: Include the version.sh file, so autoconf
+    can always see when the project version updates
+    * version.sh: Update to the correct new version
+    * NEWS: Update the news for the new version
+
+2025-01-31  Mihai Gătejescu <gus666xe@gmail.com>
+
+    * README.git: Update the requirements to include gengetopt
+
+2025-01-19  Felix Nattter <fnatter@gmx.net>
+
+    * tools/typcombine: fix: call lesson menus from global menu
+
+2024-08-28  Mihai Gătejescu <mgatejescu@pm.me.com>
+
+    * .gitignore: Add the clang compile database file
+
+2024-08-08  Mihai Gătejescu <mgatejescu@pm.me.com>
+
+    * TODO: Add two new requests
+
+2024-07-08  Mihai Gătejescu <mgatejescu@pm.me.com>
+
+    * typefortune.1: Fix warnings for help2man generated man pages
+
 2022-01-26  Mihai Gătejescu <gus666xe@gmail.com>
 
     * all files: Update license years
