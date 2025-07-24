@@ -83,6 +83,14 @@ echo "Checking for required tools..."
     exit 1
 }
 
+(gengetopt --version) < /dev/null > /dev/null 2>&1 || {
+    echo
+    echo "**Error**: You must have \`gengetopt' installed."
+    echo "Get https://ftp.gnu.org/gnu/gengetopt/gengetopt-2.23.tar.xz"
+    echo "(or a newer version if it is available)"
+    exit 1
+}
+
 # Copy gettext.h from gettext install
 
 gettext_exe=`which gettext`
