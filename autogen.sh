@@ -70,8 +70,7 @@ echo "Checking for required tools..."
 (help2man --version) < /dev/null > /dev/null 2>&1 || {
     echo
     echo "**Error**: You must have \`help2man' installed."
-    echo "Get ftp://ftp.gnu.org/gnu/help2man/help2man_1.33.1.tar.gz"
-    echo "(or a newer version if it is available)"
+    echo "Get the latest version at https://ftp.gnu.org/gnu/help2man/"
     exit 1
 }
 
@@ -86,8 +85,7 @@ echo "Checking for required tools..."
 (gengetopt --version) < /dev/null > /dev/null 2>&1 || {
     echo
     echo "**Error**: You must have \`gengetopt' installed."
-    echo "Get https://ftp.gnu.org/gnu/gengetopt/gengetopt-2.23.tar.xz"
-    echo "(or a newer version if it is available)"
+    echo "Get the latest version at https://ftp.gnu.org/gnu/gengetopt/"
     exit 1
 }
 
